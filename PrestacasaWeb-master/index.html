@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicasa</title>
+    <link rel="stylesheet" href="css/custom.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+  
+
+  <nav class="navbar navbar-light bg-light fixed-top ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img id="logo" src="images/logo.png" alt=""  height="45" class="d-inline-block align-text-top ms-0 ms-md-5">
+      </a>
+      <div class="d-inline-block content-formNav">
+      <form class="d-flex">
+        <input class="form-control form-control-sm " type="search" placeholder="¿Qué buscas?" aria-label="Search">
+        <button class="btn btn-primary " type="submit"><img src="images/search_white_24dp.svg" alt=""></button>
+      </form>
+     </div>
+      <button id="buttonLogin" type="button" class="btn btn-secondary text-light"><span class="material-icons">account_circle</span>Iniciar Sesión</button>
+      <a id="buttonMarket" class="btn btn-primary me-5 text-light" href="tienda.html" role="button"><span class="material-icons">shopping_cart</span>Ir A Tienda</a>
+    </div>
+  </nav>
+<div class="container-fluid mt-8 bg-primary">
+  <div class="container d-none d-lg-block bg-primary">
+    <div class="row text-center">
+      <div class="col-6">
+        <button type="button" class="btn btn-warning mt-1 mb-1"><img src="images/delivery.png" alt="" height="40px"> Compra sin salir de casa ¡Delivery gratis!
+        </button>
+      </div>
+      <div class="col-6"><button type="button" class="btn btn-warning mt-1 mb-1"><img src="images/descuento.png" alt="" height="40px"> ¡Hasta 70% de descuento en algunos productos!
+      </button></div>
+    </div>
+  </div>
+</div>  
+  <div id="categoriasImages" class="container-fluid position-relative">
+    <div class="container container-slider text-center">
+      <div class="row">
+        <div class="col-md-3 col-6  p-2"> 
+          <div class="container ">
+          <img src="images/twitter-logo.jpg" class="img-thumbnail" alt="...">
+          </div> 
+        </div>
+        <div class="col-md-3 col-6 p-2"> 
+          <div class="container">
+          <img src="images/twitter-logo.jpg" class="img-thumbnail" alt="...">
+          </div> 
+        </div>
+        <div class="col-md-3 col-6  p-2"> 
+          <div class="container">
+          <img src="images/twitter-logo.jpg" class="img-thumbnail" alt="...">
+          </div> 
+        </div>
+        <div class="col-md-3 col-6  p-2"> 
+          <div class="container">
+          <img src="images/twitter-logo.jpg" class="img-thumbnail" alt="...">
+          </div> 
+        </div>
+      
+      </div>
+    </div>
+</div>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/fondo.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="images/fondo.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item ">
+      <img src="images/fondo.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<div id="tiendaFace" class="container-fluid h-100 mt-5 mb-5"> 
+  <div class="row align-items-center">
+    <div class="col text-center">
+      <button  class="btn btn-secondary regular-button mt-3 text-light buttonAnimation"><h4>Tienda de Facebook</h4></button>
+    </div>	
+  </div>
+</div>
+
+<div class="container mt-sm-5 mt-0">
+  <div class="row align-items-center">
+    <div class="col-md-4 col-12 mt-sm-3 mt-0">
+      <img src="images/4.jpg" class="img-fluid rounded-2 imgGrand " alt="...">
+    </div>
+    <div class="col-md-4 col-12 mt-3">
+      <img src="images/4.jpg" class="img-fluid rounded-2 imgGrand " alt="...">
+    </div>
+    <div class="col-md-4 col-12 mt-3">
+      <img src="images/4.jpg" class="img-fluid rounded-2 imgGrand " alt="...">
+    </div>
+  </div>
+ </div>
+ <br>
+ <hr>
+ <br>
+ <section class="section">
+<div class="text-center mb-5"><h1>PRODUCTOS RECOMENDADOS</h1></div>
+<div class="container">
+   <div class="row">
+     <div class="col-md-4 col-12">
+       <div>
+        <img src="images/cuadrado.jpg" class="img-fluid" alt="..." height="100px">
+       </div>
+     </div>
+      <div class="col-md-8 col-12">
+        <div class="row ">
+          <div class="col-md-3 col-6 p-1">
+            <div class="card h-100">
+              <img src="images/cuadrado2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Organizador de baño</h5>
+                <p class="card-text">Categoria</p>
+                <p class="card-text fw-bold">s/59.90</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 p-1">
+            <div class="card h-100">
+              <img src="images/cuadrado2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Organizador de baño</h5>
+                <p class="card-text">Categoria</p>
+                <p class="card-text fw-bold">s/59.90</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 p-1">
+            <div class="card h-100">
+              <img src="images/cuadrado2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Organizador de baño</h5>
+                <p class="card-text">Categoria</p>
+                <p class="card-text fw-bold">s/59.90</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 p-1">
+            <div class="card h-100">
+              <img src="images/cuadrado2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Organizador de baño</h5>
+                <p class="card-text">Categoria</p>
+                <p class="card-text fw-bold">s/59.90</p>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid h-100 "> 
+            <div class="row align-items-center">
+              <div class="col text-start">
+                <button class="btn btn-secondary regular-button mt-3"> Ver más </button>
+              </div>	
+          </div>
+        </div>
+      </div>
+   </div>
+</div>
+</div>
+</section>
+<br>
+<hr>
+<br>
+<section class="section">
+<div class="text-center mb-5"><h1>LO MÁS VENDIDO</h1></div>
+<div class="container">
+   <div class="row">
+     <div class="col-md-4 col-12">
+       <div>
+        <img src="images/cuadrado.jpg" class="img-fluid" alt="..." height="100px">
+       </div>
+     </div>
+      <div class="col-md-8 col-12">
+        <div class="row ">
+          <div class="col-md-3 col-6 p-1">
+            <div class="card h-100">
+              <img src="images/cuadrado2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Organizador de baño</h5>
+                <p class="card-text">Categoria</p>
+                <p class="card-text fw-bold">s/59.90</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 p-1">
+            <div class="card h-100">
+              <img src="images/cuadrado2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Organizador de baño</h5>
+                <p class="card-text">Categoria</p>
+                <p class="card-text fw-bold">s/59.90</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 p-1">
+            <div class="card h-100">
+              <img src="images/cuadrado2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Organizador de baño</h5>
+                <p class="card-text">Categoria</p>
+                <p class="card-text fw-bold">s/59.90</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 p-1">
+            <div class="card h-100">
+              <img src="images/cuadrado2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Organizador de baño</h5>
+                <p class="card-text">Categoria</p>
+                <p class="card-text fw-bold">s/59.90</p>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid h-100 "> 
+            <div class="row align-items-center">
+              <div class="col text-start">
+                <button class="btn btn-secondary regular-button mt-3"> Ver más </button>
+              </div>	
+          </div>
+        </div>
+      </div>
+   </div>
+</div>
+</div>
+</section>
+<br>
+<hr>
+<br>
+<section>
+<div class="text-center mb-5"><h1>LAS MEJORES OFERTAS</h1></div>
+<div class="container">
+	<div class="row">
+		<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+            <div class="MultiCarousel-inner">
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pad15">
+                        <p class="lead">Multi Item Carousel</p>
+                        <p>₹ 1</p>
+                        <p>₹ 6000</p>
+                        <p>50% off</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary leftLst"><</button>
+            <button class="btn btn-primary rightLst">></button>
+        </div>
+	</div>
+</div>
+<br>
+<hr>
+<br>
+
+
+
+<div class="container">
+  <div class="text-center mb-3 py-3"><h1>Beneficios de comprar en PractiCasa</h1></div>
+  <div class="row text-center">
+    <div class="col-md-2 col-4">
+      <div class="row">
+       <div class="col-12"><img src="/images/cuadrado2.png" class="rounded mx-auto d-block" alt="" height="80"></div>
+       <div class="col-12 mt-1">Naranja</div>
+      </div>
+    </div>
+    <div class="col-md-2 col-4">
+      <div class="row">
+       <div class="col-12"><img src="/images/cuadrado2.png" class="rounded mx-auto d-block" alt="" height="80"></div>
+       <div class="col-12 mt-1">Naranja</div>
+      </div>
+    </div>
+    <div class="col-md-2 col-4">
+      <div class="row">
+       <div class="col-12"><img src="/images/cuadrado2.png" class="rounded mx-auto d-block" alt="" height="80"></div>
+       <div class="col-12 mt-1">Naranja</div>
+      </div>
+    </div>
+    <div class="col-md-2 col-4">
+      <div class="row">
+       <div class="col-12"><img src="/images/cuadrado2.png" class="rounded mx-auto d-block" alt="" height="80"></div>
+       <div class="col-12 mt-1">Naranja</div>
+      </div>
+    </div>
+    <div class="col-md-2 col-4">
+      <div class="row">
+       <div class="col-12"><img src="/images/cuadrado2.png" class="rounded mx-auto d-block" alt="" height="80"></div>
+       <div class="col-12 mt-1">Naranja</div>
+      </div>
+    </div>
+    <div class="col-md-2 col-4">
+      <div class="row">
+       <div class="col-12"><img src="/images/cuadrado2.png" class="rounded mx-auto d-block" alt="" height="80"></div>
+       <div class="col-12 mt-1">Naranja</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<br>
+<hr>
+<br>
+<!-- footer -->
+<div class="container-fluid bg-primary py-2">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-4 col-6">
+        <div class="col-12"><img src="images/logo.png" class="rounded mx-auto d-block" height="80px"></div>
+      <div class="col-12">
+        <p><a class="text-white d-block text-decoration-none" href="nuestraEmpresa.html">Nuestra Empresa</a></p>
+        <p><a class="text-white d-block text-decoration-none" href="">Contáctanos</a></p>
+        <p><a class="text-white d-block text-decoration-none" href="">Costo de Envío</a></p>
+        <p><a class="text-white d-block text-decoration-none" href="">Métodos de Pago</a></p>
+      </div>
+      </div>
+      <div class="col-md-4 col-6">
+        <div class="col-12">
+          <h5 class="text-white mt-4 mb-md-4 mb-4">SERVICIO AL CLIENTE</h5>
+          <p><a class="text-white d-block text-decoration-none" href="">Política de privacidad</a></p>
+          <p><a class="text-white d-block text-decoration-none" href="">Términos y condiciones</a></p>
+          <p><a class="text-white d-block text-decoration-none" href="">Cambios y devoluciones</a></p>
+          <p><a class="text-white d-block text-decoration-none" href="">Aviso legal y términos de uso</a></p>
+        </div>
+        <div class="col-12"></div>
+      </div>
+      <div class="col-md-4 col-12">
+        <div class="col-12">
+          <h5 class="text-white mt-4  mb-md-4 mb-4">CONÉCTATE CON PRACTICASA</h5>
+        </div>
+        <div class="col-12 row text-center my-3">
+         
+          <div class="col-4 imgSer"><a href="https://www.facebook.com/practicasadelperu"><img src="images/Facebook_logo.png" alt="" height="65"></a></div>
+          <div class="col-4  imgSer"><a href="https://www.instagram.com/practicasaperu/"><img src="images/Instagram-logo.png" alt="" height="65"></a></div>
+          <div class="col-4  imgSer"><a href="https://www.youtube.com/channel/UCyZemVtK_J5iR_B-viUghRw"><img src="images/YouTube-LOGO.png" alt="" height="65"></a></div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Derechos -->
+<div class="container-fluid bg-black">
+  <div class="container text-white text-center py-1">
+    © PractiCasa 2022 – Todos los derechos reservados
+  </div>
+</div> 
+<!-- boton wsp -->
+<a href="https://api.whatsapp.com/send?phone=51947745157&app=facebook&entry_point=page_cta&fbclid=IwAR3Zv9iQQ_K__6uSMdFF_UOLe5xpv390Ku25UQo3h9U7uFcFkCkMMLPKsas" class="floatWapp" target="_blank">
+  <i class="fa fa-whatsapp my-floatWapp"></i>
+  </a>
+  <!-- boton flotante market -->
+  <a id="floatShop" href="https://api.whatsapp.com/send?phone=51947745157&app=facebook&entry_point=page_cta&fbclid=IwAR3Zv9iQQ_K__6uSMdFF_UOLe5xpv390Ku25UQo3h9U7uFcFkCkMMLPKsas" class="floatShop" target="_blank">
+    <i class="fa fa-shopping-cart my-floatShop"></i>
+    </a>
+<!-- scripts -->
+<script src="	https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
