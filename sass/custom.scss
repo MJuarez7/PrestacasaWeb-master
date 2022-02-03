@@ -63,6 +63,9 @@ $spacers: (
     #tiendaFace{
         display: none;
     }
+    #videoY1{
+       height: 200px;
+    }
     
  
    }
@@ -72,6 +75,7 @@ $spacers: (
     #categoriasImages{
         display: none;
     }
+   
 }
 
 @media (max-width: 833px) {

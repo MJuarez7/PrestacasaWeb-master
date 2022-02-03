@@ -12360,6 +12360,9 @@ fieldset:disabled .btn {
   #tiendaFace {
     display: none;
   }
+  #videoY1 {
+    height: 200px;
+  }
 }
 
 @media (min-width: 663px) {

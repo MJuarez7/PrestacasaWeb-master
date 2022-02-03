@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../splide/src/css/template/default/foundation/colors.scss"
+    ],
+    "names": [],
+    "file": "colors.css"
+}
