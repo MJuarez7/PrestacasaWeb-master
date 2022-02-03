@@ -220,9 +220,24 @@ for (var i = 0; i < buttonAnimation.length; i++) {
     buttonAnimation[i].addEventListener('mouseout', heartBeatOff, false);
 }
 
-new Splide( '.splide', {
-    type:"loop",
-    perPage: 4,
-    autoplay:true
-  }).mount();
 
+
+  function myFunction(x) {
+    if (x.matches) { // If media query matches
+        new Splide( '.splide', {
+            type:"loop",
+            perPage: 2,
+            autoplay:true
+          }).mount();
+    } else {
+        new Splide( '.splide', {
+            type:"loop",
+            perPage: 4,
+            autoplay:true
+          }).mount();
+    }
+  }
+  
+  var x = window.matchMedia("(max-width: 768px)")
+  myFunction(x) // Call listener function at run time
+  x.addListener(myFunction) // Attach listener function on state changes
