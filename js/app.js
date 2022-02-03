@@ -219,3 +219,10 @@ for (var i = 0; i < buttonAnimation.length; i++) {
 for (var i = 0; i < buttonAnimation.length; i++) {
     buttonAnimation[i].addEventListener('mouseout', heartBeatOff, false);
 }
+
+new Splide( '.splide', {
+    type:"loop",
+    perPage: 4,
+    autoplay:true
+  }).mount();
+
