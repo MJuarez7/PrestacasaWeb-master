@@ -70,7 +70,7 @@ new Splide( '.splide' ).mount( window.splide.Extensions );
     if (x.matches) { // If media query matches
         const splide = new Splide( '.splide', {
             type   : 'loop',
-            drag   : 'free',
+            
             focus  : 'center',
             perPage: 1,
             autoScroll: {
@@ -83,9 +83,9 @@ new Splide( '.splide' ).mount( window.splide.Extensions );
         const splide = new Splide( '.splide', {
             
             type   : 'loop',
-            drag   : 'free',
+           
             focus  : 'center',
-            perPage: 3,
+            perPage: 5,
             autoScroll: {
               speed: 2,
             },
