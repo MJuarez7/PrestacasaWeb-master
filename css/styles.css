@@ -40,3 +40,10 @@
 .splide__pagination__page{
   display: none;
 }
+
+@media ( max-width:663px){
+ 
+  .splide__arrow{
+      display: none;
+  }
+}
