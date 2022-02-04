@@ -1,8 +1,9 @@
 <?php
+//24HozjbTBB-4
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "practicasa";
+$username = "gianfcl";
+$password = "python2014";
+$dbname = "bdpracticacasa";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
