@@ -1,9 +1,9 @@
 <?php
 //24HozjbTBB-4
-$servername = "localhost";
-$username = "gianfcl";
+$servername = "38.242.199.255";
+$username = "gianfcl_gianfcl";
 $password = "python2014";
-$dbname = "bdpracticacasa";
+$dbname = "gianfcl_practicasa";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
