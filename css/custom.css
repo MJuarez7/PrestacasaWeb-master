@@ -12365,6 +12365,12 @@ fieldset:disabled .btn {
   }
 }
 
+@media (max-width: 663px) {
+  .imgSel {
+    display: none;
+  }
+}
+
 @media (min-width: 663px) {
   #categoriasImages {
     display: none;
