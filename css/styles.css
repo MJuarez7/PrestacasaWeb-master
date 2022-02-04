@@ -37,4 +37,12 @@
   }
 
 
-  
+.splide__pagination__page{
+  display: none;
+}
+@media (min-width: 663px) { 
+  .splide__arrow{
+    display: none;
+  }
+ 
+}

@@ -81,6 +81,7 @@ new Splide( '.splide' ).mount( window.splide.Extensions );
           splide.mount();
     } else {
         const splide = new Splide( '.splide', {
+            
             type   : 'loop',
             drag   : 'free',
             focus  : 'center',
