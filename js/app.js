@@ -85,7 +85,7 @@ new Splide( '.splide' ).mount( window.splide.Extensions );
             type   : 'loop',
             pauseOnHover: boolean = true,
             focus  : 'center',
-            perPage: 5,
+            perPage: 4,
             autoScroll: {
               speed: 2,
             },
