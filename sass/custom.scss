@@ -67,6 +67,9 @@ $spacers: (
     #videoY1{
        height: 200px;
     }
+    .ocultar{
+        display: none;
+      }
     
  
    }
@@ -78,6 +81,9 @@ $spacers: (
 
    @media (min-width: 663px) { 
     #categoriasImages{
+        display: none;
+    }
+    #carouselExampleIndicatorsMobile{
         display: none;
     }
     

@@ -12363,6 +12363,9 @@ fieldset:disabled .btn {
   #videoY1 {
     height: 200px;
   }
+  .ocultar {
+    display: none;
+  }
 }
 
 @media (max-width: 663px) {
@@ -12373,6 +12376,9 @@ fieldset:disabled .btn {
 
 @media (min-width: 663px) {
   #categoriasImages {
+    display: none;
+  }
+  #carouselExampleIndicatorsMobile {
     display: none;
   }
 }
