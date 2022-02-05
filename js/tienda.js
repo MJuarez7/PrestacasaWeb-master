@@ -72,7 +72,9 @@ $(document).ready(function () {
 	      var productos = "<div>";
 	      for (var i = 0; i < response.length; i++) {
 	      	// console.log(response[i].nombre);
-	      	productos=productos+response[i].nombre+","+response[i].moneda+response[i].precio+"<br>";
+	      	productos=productos+"<div>"+response[i].nombre+","+response[i].moneda+response[i].precio+
+	      	"<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
+	      	"</div>";
 	      }
 	      $("#productos").html(productos);
 	    }
