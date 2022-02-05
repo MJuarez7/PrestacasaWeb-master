@@ -12377,6 +12377,12 @@ fieldset:disabled .btn {
   }
 }
 
+@media (max-width: 805px) {
+  .container-anuncio {
+    display: none;
+  }
+}
+
 @media (max-width: 833px) {
   #buttonMarket {
     display: none;

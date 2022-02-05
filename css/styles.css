@@ -41,6 +41,16 @@
   display: none;
 }
 
+.container-anuncio{
+  padding: 0;
+}
+.container-anuncio2{
+  padding: 0;
+}
+
+.text-gris{
+  color: #504e4e99;
+}
 @media ( max-width:663px){
  
   .splide__arrow{
