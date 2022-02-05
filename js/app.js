@@ -111,7 +111,8 @@ window.onload = function(){
     imagen.addEventListener('mouseout',imagenIniciar);
    
     function cambiarImagen(){
-        this.setAttribute('src','images/productos/p002/2.jpg'); 
+        this.setAttribute('src','images/productos/p002/2.jpg');
+         
     }
    
     function imagenIniciar(){
