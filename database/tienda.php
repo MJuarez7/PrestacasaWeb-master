@@ -4,7 +4,7 @@ include 'conexion.php';
 $_POST['condicion'] ="productos";
 if ($_POST['condicion']=='productos') {
 	$conn = conectar();
-	$sql = "SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion FROM productos";
+	$sql = "SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion,imagen FROM productos";
 	$result = $conn->query($sql);
 
 	$data=[];
@@ -20,6 +20,7 @@ if ($_POST['condicion']=='productos') {
 			'moneda'=>$row['moneda'],
 			'precio'=>$row['precio'],
 			'descripcion'=>$row['descripcion'],
+			'imagen'=>$row['imagen'],
 	  	];
 	    // array_push($data,json_encode($row));
 	    // print_r($data);
