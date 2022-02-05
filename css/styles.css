@@ -49,12 +49,17 @@
 }
 
 .text-gris{
-  color: #504e4e99;
+  color: #58585899;
 }
-
+.bg-grisClaro{
+  background-color: #f7f1f199;
+}
 @media ( max-width:663px){
  
   .splide__arrow{
       display: none;
+  }
+  .ocultar{
+    display: none;
   }
 }
