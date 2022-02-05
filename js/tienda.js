@@ -17,7 +17,13 @@ $(document).ready(function () {
 	    data: 'condicion=marca',
 	    success: function(response)
 	    {
-	      console.log(response);
+	      // console.log(response);
+	      var marcas = "<div>";
+	      for (var i = 0; i < response.length; i++) {
+	      	// console.log(response[i].marca);
+	      	marcas=marcas+response[i].marca+"<br>";
+	      }
+	      $("#marcas").html(marcas);
 	    }
   	});
 
@@ -28,7 +34,13 @@ $(document).ready(function () {
 	    data: 'condicion=modelo',
 	    success: function(response)
 	    {
-	      console.log(response);
+	      // console.log(response);
+	      var modelos = "<div>";
+	      for (var i = 0; i < response.length; i++) {
+	      	// console.log(response[i].modelo);
+	      	modelos=modelos+response[i].modelo+"<br>";
+	      }
+	      $("#modelos").html(modelos);
 	    }
   	});
 
@@ -39,7 +51,13 @@ $(document).ready(function () {
 	    data: 'condicion=categoria',
 	    success: function(response)
 	    {
-	      console.log(response);
+	      // console.log(response);
+	      var categorias = "<div>";
+	      for (var i = 0; i < response.length; i++) {
+	      	// console.log(response[i].categoria);
+	      	categorias=categorias+response[i].categoria+"<br>";
+	      }
+	      $("#categorias").html(categorias);
 	    }
   	});
 
@@ -50,7 +68,13 @@ $(document).ready(function () {
 	    data: 'condicion=productos',
 	    success: function(response)
 	    {
-	      console.log(response);
+	      // console.log(response);
+	      var productos = "<div>";
+	      for (var i = 0; i < response.length; i++) {
+	      	// console.log(response[i].nombre);
+	      	productos=productos+response[i].nombre+","+response[i].moneda+response[i].precio+"<br>";
+	      }
+	      $("#productos").html(productos);
 	    }
   	});
 });
