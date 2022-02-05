@@ -89,6 +89,7 @@ new Splide( '.splide' ).mount( window.splide.Extensions );
             autoScroll: {
               speed: 2,
             },
+            speed: number = 3
           } );
           
           splide.mount();
