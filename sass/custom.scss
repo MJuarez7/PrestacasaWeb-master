@@ -2,6 +2,7 @@
 $primary:  #db0e53 ;
 $secondary: #0596fc;
 $success : #3a3a3a;
+
 $spacer: 1rem;
 $spacers: (
   0: 0,
@@ -79,7 +80,13 @@ $spacers: (
     #categoriasImages{
         display: none;
     }
+    
    
+}
+@media ( max-width:805px){
+  .container-anuncio{
+      display:none;
+  }
 }
 
 @media (max-width: 833px) {
