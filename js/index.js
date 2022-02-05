@@ -1,11 +1,12 @@
 $(document).ready(function () {
-	$.ajax({
+  	$.ajax({
 	    type: "POST",
 	    url: 'database/tienda.php',
-	    data: 'condicion=catalogo',
+	    dataType: 'json',
+	    data: 'condicion=productos',
 	    success: function(response)
 	    {
 	      console.log(response);
 	    }
   	});
- });
+});

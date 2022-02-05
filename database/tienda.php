@@ -1,87 +1,32 @@
 <?php
-//24HozjbTBB-4
-$servername = "38.242.199.255";
-$username = "gianfcl_gianfcl";
-$password = "python2014";
-$dbname = "gianfcl_practicasa";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+include 'conexion.php';
 // print_r($_POST['condicion']);
-if ($_POST['condicion']=='catalogo') {
-
-	$sql = "SELECT id,nombre,precio,moneda,categoria,stock,descripcion,imagen FROM productos";
+$_POST['condicion'] ="productos";
+if ($_POST['condicion']=='productos') {
+	$conn = conectar();
+	$sql = "SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion FROM productos";
 	$result = $conn->query($sql);
 
 	$data=[];
 	if ($result->num_rows > 0) {
 	  while($row = $result->fetch_assoc()) {
-	    array_push($data,$row);
+	  	// print_r($row['id']);
+	  	$data[]=[
+	  		'id'=>$row['id'],
+	  		'nombre'=>htmlentities($row['nombre']),
+			'categoria'=>$row['categoria'],
+			'modelo'=>$row['modelo'],
+			'marca'=>$row['marca'],
+			'moneda'=>$row['moneda'],
+			'precio'=>$row['precio'],
+			'descripcion'=>$row['descripcion'],
+	  	];
+	    // array_push($data,json_encode($row));
+	    // print_r($data);
 	  }
-	} else {
-	  echo json_encode(false);
 	}
-	echo json_encode($data);
-	$conn->close();
-
-}
-
-if ($_POST['condicion']=='categoria') {
-
-	$sql = "SELECT distinct categoria FROM productos";
-	$result = $conn->query($sql);
-
-	$data=[];
-	if ($result->num_rows > 0) {
-	  while($row = $result->fetch_assoc()) {
-	    array_push($data,$row);
-	  }
-	} else {
-	  echo json_encode(false);
-	}
-	echo json_encode($data);
-	$conn->close();
-
-}
-
-
-if ($_POST['condicion']=='modelo') {
-
-	$sql = "SELECT distinct modelo FROM productos";
-	$result = $conn->query($sql);
-
-	$data=[];
-	if ($result->num_rows > 0) {
-	  while($row = $result->fetch_assoc()) {
-	    array_push($data,$row);
-	  }
-	} else {
-	  echo json_encode(false);
-	}
-	echo json_encode($data);
-	$conn->close();
-
-}
-
-
-if ($_POST['condicion']=='marca') {
-
-	$sql = "SELECT distinct marca FROM productos";
-	$result = $conn->query($sql);
-
-	$data=[];
-	if ($result->num_rows > 0) {
-	  while($row = $result->fetch_assoc()) {
-	    array_push($data,$row);
-	  }
-	} else {
-	  echo json_encode(false);
-	}
-	echo json_encode($data);
+	// print_r($data);
+	echo (json_encode($data));
 	$conn->close();
 
 }
