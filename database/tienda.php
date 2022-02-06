@@ -1,12 +1,46 @@
 <?php
 include 'conexion.php';
 // print_r($_POST['condicion']);
-$_POST['condicion'] ="productos";
+
 if ($_POST['condicion']=='productos') {
 	$conn = conectar();
-	$sql = "SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion,imagen FROM productos";
-	$result = $conn->query($sql);
+	$sql = <<<FIN
+	SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion,imagen FROM productos
+FIN;
 
+if (isset($_POST['marca']) && !empty($_POST['marca'])) {
+	$marca = "'".$_POST['marca']."'";
+	$sql = <<<FIN
+	SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion,imagen FROM productos
+	where marca in ($marca)
+FIN;
+	// print_r($sql);die();
+}
+
+if (isset($_POST['categoria']) && !empty($_POST['categoria'])) {
+	$categoria = "'".$_POST['categoria']."'";
+	$sql = <<<FIN
+	SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion,imagen FROM productos
+	where categoria in ($categoria)
+FIN;
+	// print_r($sql);die();
+}
+
+if (
+	(isset($_POST['precio1']) && !empty($_POST['precio1'])) &&
+	(isset($_POST['precio2']) && !empty($_POST['precio2']))
+) {
+	$precio1 = "'".$_POST['precio1']."'";
+	$precio2 = "'".$_POST['precio2']."'";
+	$sql = <<<FIN
+	SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion,imagen FROM productos
+	where precio >=$precio1 and precio <=$precio2
+FIN;
+	// print_r($sql);die();
+}
+
+	$result = $conn->query($sql);
+	// print_r($result);
 	$data=[];
 	if ($result->num_rows > 0) {
 	  while($row = $result->fetch_assoc()) {
