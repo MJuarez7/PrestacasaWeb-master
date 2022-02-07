@@ -33,7 +33,7 @@ $(document).ready(function () {
 		  	categorias=categorias+"<input type='checkbox' class='ccategorias' name='categoria["+response[i].categoria+"]'>"+
 		  	"<label>"+response[i].categoria+"</label><br>";
 		  }
-		  console.log(categorias);
+		  // console.log(categorias);
 		  $("#categorias").append(categorias);
 		}
 	});
@@ -61,6 +61,7 @@ $(document).ready(function () {
 		  	// console.log(response[i].nombre);
 		  	productos=productos+"<div>"+response[i].nombre+","+response[i].moneda+response[i].precio+
 		  	"<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
+		  	"<button type='button' class='botonproducto' idprod='"+response[i].id+"' nombre='"+response[i].nombre+"' precio='"+response[i].precio+"' moneda='"+response[i].moneda+"'>Agregar</button>"+
 		  	"</div>";
 		  }
 		  $("#productos").append(productos);
@@ -96,9 +97,30 @@ function consultarproductos(data) {
 		  	// console.log(response[i].nombre);
 		  	productos=productos+"<div>"+response[i].nombre+","+response[i].moneda+response[i].precio+
 		  	"<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
+		  	"<button type='button' class='botonproducto' idprod='"+response[i].id+"' nombre='"+response[i].nombre+"' precio='"+response[i].precio+"' moneda='"+response[i].moneda+"'>Agregar</button>"+
 		  	"</div>";
 		  }
 		  $("#productos").html(productos);
 		}
 	});
 }
+
+$(document).on("click",".botonproducto",function() {
+	// htmlproducto = "";
+	trproducto = $("#tcarrito").find("tr[idproducto='"+$(this).attr("idprod")+"']").length;
+	// console.log(trproducto);
+	cant = 1;
+	if (trproducto) {
+		cant = $("#tcarrito tr[idproducto='"+$(this).attr("idprod")+"'] th.cantidad").html();
+		cant++;
+	}
+	if (cant<=1) {
+		htmlproducto = "<tr idproducto='"+$(this).attr("idprod")+"'><th class='cantidad'>"+cant+"</th><th>"+$(this).attr("nombre")+"</th><th class='precioprod'>"+$(this).attr("precio")+"</th></tr>";
+		$("#tcarrito").append(htmlproducto);
+	}else{
+		$("#tcarrito tr[idproducto='"+$(this).attr("idprod")+"'] th.cantidad").html(cant);
+		$("#tcarrito tr[idproducto='"+$(this).attr("idprod")+"'] th.precioprod").html($(this).attr("precio")*cant);
+	}
+
+	
+});

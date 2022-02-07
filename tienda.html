@@ -31,8 +31,8 @@
   <br><br><br>
   <div class="container">
   <div class="row">
-    <form id="formfiltros">
-      <div id="filtros" class="col-md-2 col-12 mt-8">
+    <div id="filtros" class="col-md-2 col-12 mt-8">
+      <form id="formfiltros">
         <div id="marca" class="container">Marca</div>
         <div id="marcas" class="container">
           
@@ -49,8 +49,8 @@
           <input name="precio2" placeholder="1000">
           <button type="button" id="buscar">Filtrar</button>
         </div>
-      </div>
-    </form>
+        </form>
+    </div>
     
     <div class="col-md-10 col-12 bg-white">
       <div class="row">
@@ -61,6 +61,19 @@
       </div>
       <div id="productos"></div>
     </div>
+  </div>
+  <br><br>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <td>cantidad</td>
+          <td>producto</td>
+          <td>submonto</td>
+        </tr>
+      </thead>
+      <tbody id="tcarrito"></tbody>
+    </table>
   </div>
 </div>
   <style type="text/css">
