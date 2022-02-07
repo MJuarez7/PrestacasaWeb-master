@@ -11,27 +11,12 @@ $(document).ready(function () {
 	      var marcas = "";
 	      for (var i = 0; i < response.length; i++) {
 	      	// console.log(response[i].marca);
-	      	marcas=marcas+"<div class='marca'>"+response[i].marca+"</div>";
+	      	marcas=marcas+"<input type='checkbox' class='cmarcas' name='marca["+response[i].marca+"]'>"+
+	      	"<label>"+response[i].marca+"</label><br>";
 	      }
+	      // console.log(marcas);
 	      $("#marcas").html(marcas);
 	    }
-	});
-
-	$.ajax({
-		type: "POST",
-		url: 'database/modelo.php',
-		dataType: 'json',
-		data: 'condicion=modelo',
-		success: function(response)
-		{
-		  // console.log(response);
-		  var modelos = "";
-		  for (var i = 0; i < response.length; i++) {
-		  	// console.log(response[i].modelo);
-		  	modelos=modelos+"<div class='modelo'>"+response[i].modelo+"</div>";
-		  }
-		  $("#modelos").append(modelos);
-		}
 	});
 
 	$.ajax({
@@ -45,7 +30,8 @@ $(document).ready(function () {
 		  var categorias = "";
 		  for (var i = 0; i < response.length; i++) {
 		  	// console.log(response[i].categoria);
-		  	categorias=categorias+"<div class='categoria'>"+response[i].categoria+"</div>";
+		  	categorias=categorias+"<input type='checkbox' class='ccategorias' name='categoria["+response[i].categoria+"]'>"+
+		  	"<label>"+response[i].categoria+"</label><br>";
 		  }
 		  console.log(categorias);
 		  $("#categorias").append(categorias);
@@ -55,11 +41,11 @@ $(document).ready(function () {
 	$("#marca").click(function(){
 	    $("#marcas").slideToggle("slow");
 	});
-	$("#modelo").click(function(){
-	    $("#modelos").slideToggle("slow");
-	});
 	$("#categoria").click(function(){
 	    $("#categorias").slideToggle("slow");
+	});
+	$("#precio").click(function(){
+	    $("#precios").slideToggle("slow");
 	});
 
 	$.ajax({
@@ -83,14 +69,25 @@ $(document).ready(function () {
 });
 
 
-$(document).on("click",".marca",function(argument) {
-	// console.log(this);
-	// console.log(this.innerHTML);
+$(document).on("click",".cmarcas",function(argument) {
+	consultarproductos($("#formfiltros").serialize());
+});
+
+$(document).on("click",".ccategorias",function(argument) {
+	consultarproductos($("#formfiltros").serialize());
+});
+
+$(document).on("click","#buscar",function(argument) {
+	consultarproductos($("#formfiltros").serialize());
+});
+
+function consultarproductos(data) {
+	// console.log(data);
 	$.ajax({
 		type: "POST",
 		url: 'database/tienda.php',
 		dataType: 'json',
-		data: 'condicion=productos&marca='+this.innerHTML,
+		data: data+'&condicion=productos',
 		success: function(response)
 		{
 		  // console.log(response);
@@ -104,4 +101,4 @@ $(document).on("click",".marca",function(argument) {
 		  $("#productos").html(productos);
 		}
 	});
-});
+}

@@ -31,20 +31,26 @@
   <br><br><br>
   <div class="container">
   <div class="row">
-    <div id="filtros" class="col-md-2 col-12 mt-8">
-      <div id="marca" class="container">Marca <i class="bi bi-caret-down"></i></div>
-      <div id="marcas" class="container">
-        
+    <form id="formfiltros">
+      <div id="filtros" class="col-md-2 col-12 mt-8">
+        <div id="marca" class="container">Marca</div>
+        <div id="marcas" class="container">
+          
+        </div>
+
+        <div id="categoria" class="container">Categoria</div>
+        <div id="categorias" class="container">
+          
+        </div>
+
+        <div id="precio" class="container">Precio</div>
+        <div id="precios" class="container">
+          <input name="precio1" placeholder="0">
+          <input name="precio2" placeholder="1000">
+          <button type="button" id="buscar">Filtrar</button>
+        </div>
       </div>
-      <div id="modelo" class="container">Modelo <i class="bi bi-caret-down"></i></div>
-      <div id="modelos" class="container">
-        
-      </div>
-      <div id="categoria" class="container">Categoria <i class="bi bi-caret-down"></i></div>
-      <div id="categorias" class="container">
-        
-      </div>
-    </div>
+    </form>
     
     <div class="col-md-10 col-12 bg-white">
       <div class="row">
@@ -58,7 +64,7 @@
   </div>
 </div>
   <style type="text/css">
-    #marcas,#modelos,#categorias {
+    #marcas,#categorias,#precios {
       display: none;
     }
   </style>
