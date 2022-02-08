@@ -95,9 +95,9 @@ function consultarproductos(data) {
 		  var productos = "<div>";
 		  for (var i = 0; i < response.length; i++) {
 		  	// console.log(response[i].nombre);
-		  	productos=productos+"<div>"+response[i].nombre+","+response[i].moneda+response[i].precio+
-		  	"<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
-		  	"<button type='button' class='botonproducto' idprod='"+response[i].id+"' nombre='"+response[i].nombre+"' precio='"+response[i].precio+"' moneda='"+response[i].moneda+"'>Agregar</button>"+
+		  	productos=productos+"<div>"+"<a href='' class='text-decoration-none text-black'> <div class='card h-100 shadow'><div class='card-img-top'></div><div class='card-body'><h5 class='card-title'>"+response[i].nombre+"</h5> <p class='card-text'>"+response[i].categoria+"</p><p class='card-text fw-bold'>"+response[i].moneda+response[i].precio+"</p></div></div></a>"
+		  	// "<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
+		  	// "<button type='button' class='botonproducto' idprod='"+response[i].id+"' nombre='"+response[i].nombre+"' precio='"+response[i].precio+"' moneda='"+response[i].moneda+"'>Agregar</button>"+
 		  	"</div>";
 		  }
 		  $("#productos").html(productos);
