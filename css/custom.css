@@ -12341,6 +12341,26 @@ fieldset:disabled .btn {
   margin-top: 100px;
 }
 
+.card-img-top {
+  height: 100%;
+  width: 100%;
+  background: url("/images/productos/p002/2.jpg") left center;
+  background-size: 100%;
+  border-radius: inherit;
+  -webkit-transition: all ease-in-out .4s;
+  transition: all ease-in-out .4s;
+}
+
+.card:hover .card-img-top {
+  height: 100%;
+  width: 100%;
+  background: url("/images/productos/p002/3.jpg") left center;
+  background-size: 100%;
+  border-radius: inherit;
+  -webkit-transition: all ease-in-out .4s;
+  transition: all ease-in-out .4s;
+}
+
 @media (max-width: 1200px) {
   #buttonLogin {
     display: none;
@@ -12362,9 +12382,6 @@ fieldset:disabled .btn {
   }
   #videoY1 {
     height: 200px;
-  }
-  .ocultar {
-    display: none;
   }
 }
 

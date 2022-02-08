@@ -105,19 +105,19 @@ new Splide( '.splide' ).mount( window.splide.Extensions );
 // import Splide from '@splidejs/splide';
 // import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 // aparecer imagen de productos;
-window.onload = function(){
-    var imagen = document.getElementById("prueba");
-    imagen.addEventListener('mouseover',cambiarImagen);
-    imagen.addEventListener('mouseout',imagenIniciar);
+// window.onload = function(){
+//     var imagen = document.getElementById("prueba");
+//     imagen.addEventListener('mouseover',cambiarImagen);
+//     imagen.addEventListener('mouseout',imagenIniciar);
    
-    function cambiarImagen(){
-        this.setAttribute('src','images/productos/p002/2.jpg');
+//     function cambiarImagen(){
+//         this.setAttribute('src','images/productos/p002/2.jpg');
          
-    }
+//     }
    
-    function imagenIniciar(){
-        this.setAttribute('src','images/productos/p002/1.jpg');
-    }
-}   
+//     function imagenIniciar(){
+//         this.setAttribute('src','images/productos/p002/1.jpg');
+//     }
+// }   
   
   
