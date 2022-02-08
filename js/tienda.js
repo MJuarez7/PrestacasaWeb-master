@@ -59,7 +59,7 @@ $(document).ready(function () {
 		  var productos = "";
 		  for (var i = 0; i < response.length; i++) {
 		  	// console.log(response[i].nombre);
-			  productos=productos+"<div  class='col-md-3 col-6'><a href='' class='text-decoration-none text-black'> <div class='card h-100 shadow'><div class='card-img-top'></div><div class='card-body'><h5 class='card-title'>"+response[i].nombre+"</h5> <p class='card-text'>"+response[i].categoria+"</p><p class='card-text fw-bold'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>"
+			  productos=productos+"<div  class='col-md-3 col-6'><a href='' class='text-decoration-none text-black'> <div class='card h-100 shadow'><div class='card-img-top'></div><div class='card-body'><h5 class='card-title'>"+response[i].nombre+"</h5> <p class='card-text'>"+response[i].categoria+"</p><p class='card-text fw-bold'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>"+"<style type='text/css'> .card-img-top{height: 100%;width:100%;background: url('/images/productos/p00+/response[i].id.jpg') left center;background-size: 100%;border-radius: inherit;transition: all ease-in-out .4s;}</style>"
 		  	// "<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
 		  	// "<button type='button' class='botonproducto' idprod='"+response[i].id+"' nombre='"+response[i].nombre+"' precio='"+response[i].precio+"' moneda='"+response[i].moneda+"'>Agregar</button>"+
 		  	;
@@ -95,7 +95,7 @@ function consultarproductos(data) {
 		  var productos = "";
 		  for (var i = 0; i < response.length; i++) {
 		  	// console.log(response[i].nombre);
-			  productos=productos+"<div  class='col-md-3 col-6'><a href='' class='text-decoration-none text-black'> <div class='card h-100 shadow'><div class='card-img-top'></div><div class='card-body'><h5 class='card-title'>"+response[i].nombre+"</h5> <p class='card-text'>"+response[i].categoria+"</p><p class='card-text fw-bold'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>"+"<style type='text/css'> .card-img-top{height: 100%;width:100%;background: url('/images/productos/p00+/response[i].id.jpg') left center;background-size: 100%;border-radius: inherit;transition: all ease-in-out .4s;</style>}"
+			  productos=productos+"<div  class='col-md-3 col-6'><a href='' class='text-decoration-none text-black'> <div class='card h-100 shadow'><div class='card-img-top'></div><div class='card-body'><h5 class='card-title'>"+response[i].nombre+"</h5> <p class='card-text'>"+response[i].categoria+"</p><p class='card-text fw-bold'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>"+"<style type='text/css'> .card-img-top{height: 100%;width:100%;background: url('/images/productos/p00+/response[i].id.jpg') left center;background-size: 100%;border-radius: inherit;transition: all ease-in-out .4s;}</style>"
 		  	// "<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
 		  	// "<button type='button' class='botonproducto' idprod='"+response[i].id+"' nombre='"+response[i].nombre+"' precio='"+response[i].precio+"' moneda='"+response[i].moneda+"'>Agregar</button>"+
 		  	;
