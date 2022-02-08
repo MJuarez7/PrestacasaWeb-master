@@ -56,7 +56,7 @@ $(document).ready(function () {
 		success: function(response)
 		{
 		  // console.log(response);
-		  var productos = "<div>";
+		  var productos = "";
 		  for (var i = 0; i < response.length; i++) {
 		  	// console.log(response[i].nombre);
 			  productos=productos+"<div  class='col-md-3 col-6'><a href='' class='text-decoration-none text-black'> <div class='card h-100 shadow'><div class='card-img-top'></div><div class='card-body'><h5 class='card-title'>"+response[i].nombre+"</h5> <p class='card-text'>"+response[i].categoria+"</p><p class='card-text fw-bold'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>"
