@@ -51,8 +51,14 @@
 .text-gris{
   color: #58585899;
 }
-.bg-grisClaro{
+.bg-grisClaro{ 
   background-color: #e6e4e499;
+}
+.card-header{
+  height: 100px;
+  width: 100%;
+  padding: 0px;
+  overflow: hidden;
 }
 /*.card-img-top{
   height: 100%;
