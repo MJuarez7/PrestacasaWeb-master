@@ -13,29 +13,17 @@ $whereprecio2 ="1=1";
 	if (isset($_POST['marca'])) {
 		$marca = [];
 		foreach ($_POST['marca'] as $key => $value) {
-			// print_r($key);
 			$marca[]="'".$key."'";
 		}
 		$marcas = implode(",", $marca);
-		// print_r($marcas);
-// 		$sql = <<<FIN
-// 		SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion,imagen FROM productos
-// 		where marca in ($marcas)
-// FIN;
-		// print_r($marca);
 		$wheremarca = count($marca)>0?"marca in ($marcas)":"1=1";
 	}
 	if (isset($_POST['categoria'])) {
 		$categoria = [];
 		foreach ($_POST['categoria'] as $key => $value) {
-			// print_r($key);
 			$categoria[]="'".$key."'";
 		}
 		$categorias = implode(",", $categoria);
-// 		$sql = <<<FIN
-// 		SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion,imagen FROM productos
-// 		where categoria in ($categorias)
-// FIN;
 		$wherecategoria = count($categoria)>0?"categoria in ($categorias)":"1=1";
 	}
 	if (isset($_POST['precio1']) && !empty($_POST['precio1'])) {
@@ -48,7 +36,7 @@ $whereprecio2 ="1=1";
 	}
 	$conn = conectar();
 	$sql = <<<FIN
-	SELECT id,nombre,categoria,modelo,marca,moneda,precio,descripcion,imagen FROM productos where $wheremarca and $wherecategoria and $whereprecio1 and $whereprecio2
+	SELECT id,nombre,categoria,marca,moneda,precio,descripcion,oferta FROM productos where $wheremarca and $wherecategoria and $whereprecio1 and $whereprecio2
 FIN;
 	// print_r($sql);
 	$result = $conn->query($sql);
@@ -61,12 +49,10 @@ FIN;
 	  		'id'=>$row['id'],
 	  		'nombre'=>htmlentities($row['nombre']),
 			'categoria'=>$row['categoria'],
-			'modelo'=>$row['modelo'],
 			'marca'=>$row['marca'],
 			'moneda'=>$row['moneda'],
 			'precio'=>$row['precio'],
 			'descripcion'=>htmlentities($row['descripcion']),
-			'imagen'=>$row['imagen'],
 	  	];
 	    // array_push($data,json_encode($row));
 	    // print_r($data);
