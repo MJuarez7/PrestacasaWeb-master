@@ -77,6 +77,9 @@ $(document).ready(function () {
 
 // ' style='height: 100%;width:100%;background: url("+$url+") left center;background-size: 100%; background-repeat: no-repeat;border-radius: inherit;transition: all ease-in-out .4s;'
 
+$(document).on("click",".cmarcas",function(argument) {
+	consultarproductos($("#formfiltros").serialize());
+});
 
 $(document).on("click",".ccategorias",function(argument) {
 	consultarproductos($("#formfiltros").serialize());
