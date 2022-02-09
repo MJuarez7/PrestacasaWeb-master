@@ -54,9 +54,9 @@
 .bg-grisClaro{ 
   background-color: #e6e4e499;
 }
-.bg-degra{
-  background: radial-gradient(circle at 0% 0%, #fa6d63 0, #f96166 12.5%, #f6536a 25%, #f2446e 37.5%, #ec3273 50%, #e51c79 62.5%, #dd007f 75%, #d30087 87.5%, #c80090 100%);
-}
+/* .bg-degra{
+  background: primary;
+} */
 /* .card-header{
   height: 220px;
   width: 100%;
