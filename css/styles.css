@@ -54,7 +54,7 @@
 .bg-grisClaro{
   background-color: #e6e4e499;
 }
-.card-img-top{
+/*.card-img-top{
   height: 100%;
   width: 100%;
   background: url("../images/productos/p009/2.jpg") left center;
@@ -70,7 +70,7 @@
   background-size: 100%;
   border-radius: inherit;
   transition: all ease-in-out .4s;
-}
+}*/
 @media ( max-width:663px){
  
   .splide__arrow{
