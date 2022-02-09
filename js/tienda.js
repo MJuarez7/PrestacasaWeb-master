@@ -66,7 +66,7 @@ $(document).ready(function () {
   			// $(".card:hover .card-img-top"+response[i].id).css("transition","all ease-in-out .4s");
 
 		  	$url = "images/productos/p"+response[i].id+"/1.jpg";
-			productos=productos+"<div  class='col-md-3 col-6'><a href='' class='text-decoration-none text-black'> <div class='card h-100 shadow'><div class='card-header'><div class='card-img-top"+response[i].id+"' style='height: 100%;width:100%;background: url("+$url+") left center;background-size: 100%;border-radius: inherit;transition: all ease-in-out .4s;'></div></div><div class='card-body'><h5 class='card-title'>"+response[i].nombre+"</h5> <p class='card-text'>"+response[i].categoria+"</p><p class='card-text fw-bold'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>";
+			productos=productos+"<div  class='col-md-3 col-6'><a href='' class='text-decoration-none text-black'> <div class='card h-100 shadow p-1'><div class='card-header'><div class='card-img-top"+response[i].id+"' style='height: 100%;width:100%;background: url("+$url+") left center;background-size: 100%;border-radius: inherit;transition: all ease-in-out .4s;'></div></div><div class='card-body'><h5 class='card-title'>"+response[i].nombre+"</h5> <p class='card-text'>"+response[i].categoria+"</p><p class='card-text fw-bold'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>";
 		  	// "<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
 		  	// "<button type='button' class='botonproducto' idprod='"+response[i].id+"' nombre='"+response[i].nombre+"' precio='"+response[i].precio+"' moneda='"+response[i].moneda+"'>Agregar</button>"+
 		  }
