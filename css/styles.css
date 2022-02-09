@@ -54,6 +54,18 @@
 .bg-grisClaro{ 
   background-color: #e6e4e499;
 }
+
+.card-title{
+  font-size: 15px;
+}
+.card-text{
+  font-size: 13px; 
+  color:#49484899;
+}
+.fw-bold{
+  font-size: 15px;
+  color:#000000;
+}
 /* .bg-degra{
   background: primary;
 } */
