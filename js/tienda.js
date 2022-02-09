@@ -66,7 +66,7 @@ $(document).ready(function () {
   			// $(".card:hover .card-img-top"+response[i].id).css("transition","all ease-in-out .4s");
 
 		  	$url = "images/productos/p"+response[i].id+"/1.jpg";
-			productos=productos+"<div  class='col-md-3 col-6 my-1'><a href='' class='text-decoration-none text-black'> <div class='card h-100 shadow'><img src='"+$url+"' class='card-img-top' alt='response[i].nombre'><div class='card-body'><h6 class='card-title'>"+response[i].nombre+"</h6> <p class='card-text'> style='color: #58585899;'"+response[i].categoria+"</p><p class='card-text fw-bold'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>";
+			productos=productos+"<div  class='col-md-3 col-6 my-1'><a href='' class='text-decoration-none text-black'> <div class='card h-100 shadow'><img src='"+$url+"' class='card-img-top' alt='response[i].nombre'><div class='card-body'><h6 class='card-title'>"+response[i].nombre+"</h6> <p class='card-text'> style='color: #58585899'"+response[i].categoria+"</p><p class='card-text fw-bold'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>";
 		  	// "<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
 		  	// "<button type='button' class='botonproducto' idprod='"+response[i].id+"' nombre='"+response[i].nombre+"' precio='"+response[i].precio+"' moneda='"+response[i].moneda+"'>Agregar</button>"+
 		  }
