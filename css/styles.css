@@ -81,6 +81,7 @@
 }
 .card:hover .btn{
   display:block;
+  transition: 1s;
 } 
 
 @media ( max-width:663px){
