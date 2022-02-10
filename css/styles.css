@@ -81,7 +81,12 @@
 }
 .card:hover .btn{
   display:block;
-  transition: 1s;
+  transition: 0.5s;
+} 
+.card:hover .card-img-top{
+  opacity: 1;
+  transform: scale(0.1);
+  transition: 0.5s;
 } 
 
 @media ( max-width:663px){
