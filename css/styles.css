@@ -77,7 +77,7 @@
 } */
 .card{
   overflow: hidden;
-  height: 420px;
+  min-height: 420px;
   
 }
 .card .btn{
@@ -108,7 +108,7 @@
   }
   .card{
     
-    max-height: 250px;
+    max-height: 350px;
     
   }
 }
