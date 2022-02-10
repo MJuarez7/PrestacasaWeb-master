@@ -77,8 +77,8 @@
 } */
 .card{
   overflow: hidden;
-  height: 400px;
-  max-height: 400px;
+  height: 420px;
+  
 }
 .card .btn{
   display: none;
@@ -106,6 +106,10 @@
     display: block;
     font-size: 12px;
   }
-
+  .card{
+    
+    max-height: 250px;
+    
+  }
 }
 
