@@ -84,13 +84,8 @@
   transition: all ease-in-out .4s;
 
 }
-.card:hover .card-body{
-  height: 100%;
-  width: 100%;
-  background: sienna;
-  background-size: 100%;
-  border-radius: inherit;
-  transition: all ease-in-out .4s;
+.card:hover .btn{
+  display:none;
 } 
 
 @media ( max-width:663px){
