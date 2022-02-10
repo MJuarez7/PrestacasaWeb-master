@@ -77,7 +77,7 @@
 } */
 
 .card .btn{
-  display: block;
+  display: none;
 }
 .card:hover .btn{
   display:block;
