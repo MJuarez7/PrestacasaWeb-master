@@ -96,7 +96,7 @@
 @media ( min-width:664px){
   .card{
     overflow: hidden;
-    min-height: 420px;
+    /* min-height: 420px; */
   }
 } 
 
