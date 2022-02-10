@@ -57,7 +57,7 @@ $(document).ready(function () {
 		  var productos = "";
 		  for (var i = 0; i < response.length; i++) {
 			  $url = "images/productos/p"+response[i].id+"/1.jpg";
-			  productos=productos+"<a <div class='col-md-3 col-6 my-1 myproducto' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'><div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'><div class='card-body'><h6 class='card-title'style='font-size: 15px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 13px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 15px;'>"+response[i].moneda+response[i].precio+"</p></div></div><button type='button' class='btn btn-primary'>VER BOLSA DE COMPRAS</button></a></div>";
+			  productos=productos+"<a <div class='col-md-3 col-6 my-1 myproducto' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'><div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'><div class='card-body'><h6 class='card-title'style='font-size: 15px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 13px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 15px;'>"+response[i].moneda+response[i].precio+"</p></div><button type='button' class='btn btn-primary'>VER BOLSA DE COMPRAS</button></div></a></div>";
 		  }
 		  $("#productos").append(productos);
 		}
