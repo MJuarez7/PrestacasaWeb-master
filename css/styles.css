@@ -89,7 +89,7 @@
 } 
 .card:hover .card-img-top{
   opacity: 1;
-  transform: scale(1.1) rotate(2deg);
+  transform: scale(1.05) rotate(1deg);
   transition: transform 0.5s;
 } 
 .card:hover {
