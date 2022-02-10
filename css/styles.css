@@ -93,6 +93,12 @@
   transform: scale(1.05) rotate(1deg);
   transition: transform 0.5s;
 } 
+@media ( min-width:663px){
+  .card{
+    overflow: hidden;
+    min-height: 420px;
+  }
+} 
 
 @media ( max-width:663px){
  
@@ -107,9 +113,8 @@
     font-size: 12px;
   }
   .card{
-    
-    max-height: 300px !important;
-    
+    overflow: hidden;
+    max-height: 300px;
   }
 }
 
