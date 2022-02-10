@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+	
 	$.ajax({
 	    type: "POST",
 	    url: 'database/marca.php',
@@ -57,7 +57,7 @@ $(document).ready(function () {
 		  var productos = "";
 		  for (var i = 0; i < response.length; i++) {
 			  $url = "images/productos/p"+response[i].id+"/1.jpg";
-			  productos=productos+"<div class='col-md-3 col-6 my-1 myproducto' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'><div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'><div class='card-body'><h6 class='card-title'style='font-size: 14px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 12px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 14px;'>"+response[i].moneda+response[i].precio+"</p></div><button type='button' class='btn btn-primary ms-md-3 me-md-3 ms-1 me-1 mb-1'>Agregar a la bolsa</button></div></div>";
+			  productos=productos+"<div class='col-md-3 col-6 my-1'><div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'><div class='card-body'><h6 class='card-title'style='font-size: 14px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 12px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 14px;'>"+response[i].moneda+response[i].precio+"</p></div><button type='button' class='btn btn-primary ms-md-3 me-md-3 ms-1 me-1 mb-1 myproducto' idproducto='"+response[i].id+"' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'>Agregar a la bolsa</button></div></div>";
 		  }
 		  $("#productos").append(productos);
 		}
@@ -65,13 +65,15 @@ $(document).ready(function () {
 });
 
 $(document).on("click",".myproducto", function() {
-	$("#modalnombre").html($(this).attr("nombre"));
+	$("#modalid").val($(this).attr("idproducto"));
 	$("#modalmoneda").html($(this).attr("moneda"));
 	$("#modalprecio").html($(this).attr("precio"));
 	$("#modalcategoria").html($(this).attr("categoria"));
 	$("#modalnombre").html($(this).attr("nombre"));
 	$("#modalimagen").attr("src",$(this).attr("url"));
 	$("#modelAgregarProducto").modal();
+
+	AgregarCarrito($(this).attr("idproducto"),1);
 });
 
 $(document).on("click",".cerrarmodal", function() {
@@ -105,7 +107,7 @@ function consultarproductos(data) {
 		  for (var i = 0; i < response.length; i++) {
 		  	// console.log(response[i].nombre);
 			  $url = "images/productos/p"+response[i].id+"/1.jpg";
-			  productos=productos+"<div class='col-md-3 col-6 my-1 myproducto' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'><div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'><div class='card-body'><h6 class='card-title'style='font-size: 14px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 12px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 14px;'>"+response[i].moneda+response[i].precio+"</p></div><button type='button' class='btn btn-primary ms-md-3 me-md-3 ms-1 me-1 mb-1'>Agregar a la bolsa</button></div></div>";
+			  productos=productos+"<div class='col-md-3 col-6 my-1'><div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'><div class='card-body'><h6 class='card-title'style='font-size: 14px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 12px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 14px;'>"+response[i].moneda+response[i].precio+"</p></div><button type='button' class='btn btn-primary ms-md-3 me-md-3 ms-1 me-1 mb-1 myproducto' idproducto='"+response[i].id+"' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'>Agregar a la bolsa</button></div></div>";
 		  }
 		  $("#productos").html(productos);
 		}
@@ -127,7 +129,5 @@ $(document).on("click",".botonproducto",function() {
 	}else{
 		$("#tcarrito tr[idproducto='"+$(this).attr("idprod")+"'] th.cantidad").html(cant);
 		$("#tcarrito tr[idproducto='"+$(this).attr("idprod")+"'] th.precioprod").html($(this).attr("precio")*cant);
-	}
-
-	
+	}	
 });

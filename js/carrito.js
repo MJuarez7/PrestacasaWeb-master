@@ -22,10 +22,24 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function AgregarCarrito(idproducto,cantidad) {
-	datos = {'idproducto':idproducto,'cantidad':cantidad}
-	setCookie("productos",encodeURIComponent(datos),60);
+	productos = JSON.parse(getCookie('carrito-productos'))?JSON.parse(getCookie('carrito-productos')):[];
+	nuevosproductos = [];
+	todosproductos = [];
+	if (productos.length>0) {
+		// console.log(1);
+		nuevosproductos.push(idproducto);
+		todosproductos = nuevosproductos.concat(productos);
+		setCookie("carrito-productos",JSON.stringify(todosproductos),2);
+	}else{
+		// console.log(2);
+		todosproductos.push(idproducto);
+		setCookie("carrito-productos",JSON.stringify(todosproductos),2);
+	}
+	// console.log(productos);
+	console.log(todosproductos);
 }
 
 $(document).ready(function() {
-	
+	productos = JSON.parse(getCookie('carrito-productos'));
+	console.log(productos);
 });
