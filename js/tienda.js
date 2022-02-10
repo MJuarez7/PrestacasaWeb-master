@@ -56,26 +56,28 @@ $(document).ready(function () {
 		{
 		  var productos = "";
 		  for (var i = 0; i < response.length; i++) {
-		  	// console.log(response[i].id);
-		  	// console.log();
-		  	// $(".card:hover .card-img-top"+response[i].id).css("height","100%");
-  			// $(".card:hover .card-img-top"+response[i].id).css("width","100%");
-  			// $(".card:hover .card-img-top"+response[i].id).css("background","url('../images/productos/p"+response[i].id+"/2.jpg') left center");
-  			// $(".card:hover .card-img-top"+response[i].id).css("background-size","100%");
-  			// $(".card:hover .card-img-top"+response[i].id).css("border-radius","inherit");
-  			// $(".card:hover .card-img-top"+response[i].id).css("transition","all ease-in-out .4s");
-
 			  $url = "images/productos/p"+response[i].id+"/1.jpg";
-			  productos=productos+"<div  class='col-md-3 col-6 my-1'><a href='' class='text-decoration-none text-black'> <div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='response[i].nombre'><div class='card-body'><h6 class='card-title'style='font-size: 15px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 13px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 15px;'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>";
-		  	// "<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
-		  	// "<button type='button' class='botonproducto' idprod='"+response[i].id+"' nombre='"+response[i].nombre+"' precio='"+response[i].precio+"' moneda='"+response[i].moneda+"'>Agregar</button>"+
+			  productos=productos+"<div class='col-md-3 col-6 my-1 myproducto' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'><div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'><div class='card-body'><h6 class='card-title'style='font-size: 15px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 13px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 15px;'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>";
 		  }
 		  $("#productos").append(productos);
 		}
 	});
 });
 
-// ' style='height: 100%;width:100%;background: url("+$url+") left center;background-size: 100%; background-repeat: no-repeat;border-radius: inherit;transition: all ease-in-out .4s;'
+$(document).on("click",".myproducto", function() {
+	$("#modalnombre").html($(this).attr("nombre"));
+	$("#modalmoneda").html($(this).attr("moneda"));
+	$("#modalprecio").html($(this).attr("precio"));
+	$("#modalcategoria").html($(this).attr("categoria"));
+	$("#modalnombre").html($(this).attr("nombre"));
+	$("#modalimagen").attr("src",$(this).attr("url"));
+	$("#modelAgregarProducto").modal();
+});
+
+$(document).on("click","#modelAgregarProducto button.btn-close", function() {
+	// console.log(this);
+	$("#modelAgregarProducto").modal('hide');
+});
 
 $(document).on("click",".cmarcas",function(argument) {
 	consultarproductos($("#formfiltros").serialize());
@@ -104,9 +106,7 @@ function consultarproductos(data) {
 		  	// console.log(response[i].nombre);
 			  $url = "images/productos/p"+response[i].id+"/1.jpg";
 			  productos=productos+"<div  class='col-md-3 col-6 my-1'><a href='' class='text-decoration-none text-black'> <div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='response[i].nombre'><div class='card-body'><h6 class='card-title'style='font-size: 15px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 13px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 15px;'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>";
-				// "<img src='images/productos/p00"+response[i].id+"/"+response[i].id+".jpg' height='50'>"+
-				// "<button type='button' class='botonproducto' idprod='"+response[i].id+"' nombre='"+response[i].nombre+"' precio='"+response[i].precio+"' moneda='"+response[i].moneda+"'>Agregar</button>"+
-			}
+		  }
 		  $("#productos").html(productos);
 		}
 	});
