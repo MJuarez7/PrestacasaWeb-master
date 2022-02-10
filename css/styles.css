@@ -101,5 +101,11 @@
   .ocultar{
     display: none;
   }
+  .card .btn{
+    display: block;
+  }
+  .card{
+    min-height: 320px;
+  }
 }
 
