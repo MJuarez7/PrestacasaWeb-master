@@ -74,7 +74,7 @@ $(document).on("click",".myproducto", function() {
 	$("#modelAgregarProducto").modal();
 });
 
-$(document).on("click","#modelAgregarProducto button.btn-close", function() {
+$(document).on("click",".cerrarmodal", function() {
 	// console.log(this);
 	$("#modelAgregarProducto").modal('hide');
 });

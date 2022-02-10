@@ -206,22 +206,25 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Agregar a la Compra</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close cerrarmodal" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <label id="modalnombre"></label><br>
-          <label id="modalcantidad"></label><br>
-          <label id="modalcategoria"></label><br>
-          <div>
-            <label id="modalmoneda"></label>
-            <label id="modalprecio"></label>  
-          </div>
-          <br>
-          <img id="modalimagen" src="" height="100px"><br>
+          <form id="formproducto">
+            <label id="modalnombre"></label><br>
+            <label id="modalcantidad"></label><br>
+            <label id="modalcategoria"></label><br>
+            <div>
+              <label id="modalmoneda"></label>
+              <label id="modalprecio"></label>  
+            </div>
+            <br>
+            <img id="modalimagen" src="" height="100px"><br>
+            <input type="number" id="modalcantidad" value="1">
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary cerrarmodal" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Agregar Carrito</button>
         </div>
       </div>
     </div>
