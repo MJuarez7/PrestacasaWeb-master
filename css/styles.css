@@ -77,7 +77,7 @@
 } */
 .card{
   overflow: hidden;
-  /* min-height: 420px; */
+  min-height: 400px;
   
 }
 .card .btn{
