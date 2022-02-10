@@ -108,13 +108,16 @@
   .ocultar{
     display: none;
   }
-  .card .btn{
-    display: block;
-    font-size: 12px;
-  }
+ 
   .card{
     overflow: hidden;
     height: 300px;
+  }
+}
+@media( max-width:992){
+  .card .btn{
+    display: block;
+    font-size: 12px;
   }
 }
 
