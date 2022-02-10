@@ -75,23 +75,24 @@
   padding: 0px;
   overflow: hidden;
 } */
-/*.card-img-top{
+.card-img-top{
   height: 100%;
   width: 100%;
-  background: url("../images/productos/p009/2.jpg") left center;
+  background: blue;
   background-size: 100%;
   border-radius: inherit;
   transition: all ease-in-out .4s;
 
 }
-.card:hover .card-img-top{
+.card:hover .card-body{
   height: 100%;
   width: 100%;
-  background: url("../images/productos/p002/3.jpg") left center;
+  background: sienna;
   background-size: 100%;
   border-radius: inherit;
   transition: all ease-in-out .4s;
-}*/
+} 
+
 @media ( max-width:663px){
  
   .splide__arrow{
