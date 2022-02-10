@@ -77,7 +77,7 @@
 } */
 .card{
   overflow: hidden;
-  min-height: 400px;
+  /* min-height: 410px; */
   
 }
 .card .btn{
@@ -96,6 +96,7 @@
 @media ( min-width:664px){
   .card{
     overflow: hidden;
+    min-height: 410px;
   }
 } 
 
