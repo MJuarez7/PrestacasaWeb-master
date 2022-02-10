@@ -75,17 +75,12 @@
   padding: 0px;
   overflow: hidden;
 } */
-.card-img-top{
-  height: 100%;
-  width: 100%;
-  background: blue;
-  background-size: 100%;
-  border-radius: inherit;
-  transition: all ease-in-out .4s;
 
+.card .btn{
+  display: block;
 }
 .card:hover .btn{
-  display:none;
+  display:block;
 } 
 
 @media ( max-width:663px){
