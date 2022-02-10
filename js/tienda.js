@@ -105,7 +105,7 @@ function consultarproductos(data) {
 		  for (var i = 0; i < response.length; i++) {
 		  	// console.log(response[i].nombre);
 			  $url = "images/productos/p"+response[i].id+"/1.jpg";
-			  productos=productos+"<div  class='col-md-3 col-6 my-1'><a href='' class='text-decoration-none text-black'> <div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='response[i].nombre'><div class='card-body'><h6 class='card-title'style='font-size: 15px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 13px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 15px;'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>";
+			  productos=productos+"<div class='col-md-3 col-6 my-1 myproducto' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'><div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'><div class='card-body'><h6 class='card-title'style='font-size: 15px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 13px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 15px;'>"+response[i].moneda+response[i].precio+"</p></div></div></a></div>";
 		  }
 		  $("#productos").html(productos);
 		}
