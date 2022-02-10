@@ -105,7 +105,8 @@
     display: block;
   }
   .card{
-    min-height: 320px;
+    overflow: hidden;
+    height: 320px;
   }
 }
 
