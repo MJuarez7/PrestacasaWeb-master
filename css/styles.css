@@ -93,7 +93,7 @@
   transform: scale(1.05) rotate(1deg);
   transition: transform 0.5s;
 } 
-@media ( min-width:663px){
+@media ( min-width:664px){
   .card{
     overflow: hidden;
     min-height: 420px;
