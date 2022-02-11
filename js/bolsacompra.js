@@ -20,7 +20,7 @@ $(document).ready(function() {
 		    	var prods = "";
 				for (var i = 0; i < response.length; i++) {
 					// console.log(response[i].categoria);
-					prods=prods+"<div><label> Nombre"+response[i].nombre+"</label><br><label>Precio Unitario"+response[i].moneda+" "+response[i].precio+"</label><br><label>Cantidad:"+response[i].cantidad+"</label></div><br>";
+					prods=prods+"<div><label> Nombre"+response[i].nombre+"</label><br><label>Precio Unitario"+response[i].moneda+" "+response[i].precio+"</label><br><label>Cantidad:"+response[i].cantidad+"</label><br><img height='200px' src='images/productos/p"+response[i].id+"/1.jpg' ></div><br>";
 				}
 				console.log(response);
 				$("#productosselecionados").append(prods);
