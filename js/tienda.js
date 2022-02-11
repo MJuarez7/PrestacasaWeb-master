@@ -65,15 +65,28 @@ $(document).ready(function () {
 });
 
 $(document).on("click",".myproducto", function() {
+	// alert(1);
+	AgregarCarrito($(this).attr("idproducto"));
+	getproductos = getProductos();
+	productosseleccionados = [];
+	for (var i = 0; i < getproductos.length; i++) {
+		productosseleccionados.push({'id':getproductos[i][0],
+								'cantidad':getproductos[i][1]});
+	}
+	// console.log(productosseleccionados);
 	$("#modalid").val($(this).attr("idproducto"));
 	$("#modalmoneda").html($(this).attr("moneda"));
 	$("#modalprecio").html($(this).attr("precio"));
 	$("#modalcategoria").html($(this).attr("categoria"));
 	$("#modalnombre").html($(this).attr("nombre"));
 	$("#modalimagen").attr("src",$(this).attr("url"));
+	for (var i = 0; i < productosseleccionados.length; i++) {
+		console.log(productosseleccionados[i]['id']);
+		if (productosseleccionados[i]['id']==$(this).attr("idproducto")) {
+			$("#modalcantidad").val(productosseleccionados[i]['cantidad']);
+		}
+	}
 	$("#modelAgregarProducto").modal();
-
-	AgregarCarrito($(this).attr("idproducto"));
 });
 
 $(document).on("click",".cerrarmodal", function() {

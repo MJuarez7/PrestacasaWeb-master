@@ -58,5 +58,12 @@ function getProductos() {
 
 $(document).ready(function() {
 	productos = getProductos();
-	// console.log(productos);
+	productosseleccionados = [];
+	if (productos) {
+		for (var i = 0; i < productos.length; i++) {
+			productosseleccionados.push({'id':productos[i][0],
+									'cantidad':productos[i][1]});
+		}
+		// console.log(productosseleccionados);
+	}
 });
