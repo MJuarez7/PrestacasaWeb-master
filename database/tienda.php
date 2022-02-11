@@ -10,9 +10,9 @@ if ($_POST['condicion']=='productos') {
 	$wherecategoria ="1=1";
 	$whereprecio1 ="1=1";
 	$whereprecio2 ="1=1";
+	$prodcantidad=[];
 	if (isset($_POST['productos'])) {
 		$id=[];
-		$prodcantidad=[];
 		// print_r(json_decode($_POST['productos']));die();
 		foreach (json_decode($_POST['productos']) as $key => $value) {
 			// print_r($value);
