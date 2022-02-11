@@ -73,7 +73,7 @@ $(document).on("click",".myproducto", function() {
 	$("#modalimagen").attr("src",$(this).attr("url"));
 	$("#modelAgregarProducto").modal();
 
-	AgregarCarrito($(this).attr("idproducto"),1);
+	AgregarCarrito($(this).attr("idproducto"));
 });
 
 $(document).on("click",".cerrarmodal", function() {

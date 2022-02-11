@@ -5,11 +5,16 @@ include 'conexion.php';
 // die();
 
 if ($_POST['condicion']=='productos') {
-$wheremarca ="1=1";
-$wherecategoria ="1=1";
-$whereprecio1 ="1=1";
-$whereprecio2 ="1=1";
-// print_r($_POST);die();
+	$whereid ="1=1";
+	$wheremarca ="1=1";
+	$wherecategoria ="1=1";
+	$whereprecio1 ="1=1";
+	$whereprecio2 ="1=1";
+	// print_r($_POST);die();
+	if (isset($_POST['id'])) {
+		$ids = $_POST['id'];
+		$whereid = "id in ($ids)";
+	}
 	if (isset($_POST['marca'])) {
 		$marca = [];
 		foreach ($_POST['marca'] as $key => $value) {
@@ -36,7 +41,7 @@ $whereprecio2 ="1=1";
 	}
 	$conn = conectar();
 	$sql = <<<FIN
-	SELECT id,nombre,categoria,marca,moneda,precio,descripcion,oferta FROM productos where $wheremarca and $wherecategoria and $whereprecio1 and $whereprecio2
+	SELECT id,nombre,categoria,marca,moneda,precio,descripcion,oferta FROM productos where $wheremarca and $wherecategoria and $whereprecio1 and $whereprecio2 and $whereid
 FIN;
 	// print_r($sql);
 	$result = $conn->query($sql);

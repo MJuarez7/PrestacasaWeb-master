@@ -21,25 +21,42 @@ function setCookie(cname, cvalue, exdays) {
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function AgregarCarrito(idproducto,cantidad) {
+function AgregarCarrito(idproducto) {
 	productos = JSON.parse(getCookie('carrito-productos'))?JSON.parse(getCookie('carrito-productos')):[];
 	nuevosproductos = [];
-	todosproductos = [];
-	if (productos.length>0) {
-		// console.log(1);
-		nuevosproductos.push(idproducto);
-		todosproductos = nuevosproductos.concat(productos);
-		setCookie("carrito-productos",JSON.stringify(todosproductos),2);
-	}else{
-		// console.log(2);
-		todosproductos.push(idproducto);
-		setCookie("carrito-productos",JSON.stringify(todosproductos),2);
-	}
 	// console.log(productos);
-	console.log(todosproductos);
+	cantidad=1;
+	ids=[];
+	if (productos.length>0) {
+		for (var i = productos.length - 1; i >= 0; i--) {
+			ids.push(productos[i][0]);
+		}
+
+		if (ids.indexOf(idproducto)<0) {
+			nuevosproductos.push([idproducto,cantidad]);
+		}
+		
+		for (var i = productos.length - 1; i >= 0; i--) {
+			if (productos[i][0]==idproducto) {
+				nuevosproductos.push([productos[i][0],productos[i][1]+1]);
+			}else{
+				nuevosproductos.push([productos[i][0],productos[i][1]]);
+			}
+		}
+	}else{
+		nuevosproductos.push([idproducto,cantidad]);
+	}
+	setCookie("carrito-productos",JSON.stringify(nuevosproductos),2);
+	// console.log(productos);
+	// console.log(nuevosproductos);
+}
+
+function getProductos() {
+	productos = JSON.parse(getCookie('carrito-productos'));
+	return productos;
 }
 
 $(document).ready(function() {
-	productos = JSON.parse(getCookie('carrito-productos'));
-	console.log(productos);
+	productos = getProductos();
+	// console.log(productos);
 });
