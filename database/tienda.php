@@ -10,11 +10,21 @@ if ($_POST['condicion']=='productos') {
 	$wherecategoria ="1=1";
 	$whereprecio1 ="1=1";
 	$whereprecio2 ="1=1";
-	// print_r($_POST);die();
-	if (isset($_POST['id'])) {
-		$ids = $_POST['id'];
+	if (isset($_POST['productos'])) {
+		$id=[];
+		$prodcantidad=[];
+		// print_r(json_decode($_POST['productos']));die();
+		foreach (json_decode($_POST['productos']) as $key => $value) {
+			// print_r($value);
+			$id[]="'".$value[0]."'";
+			$prodcantidad[$value[0]]=$value[1];
+		}
+		$ids = implode(",", $id);
 		$whereid = "id in ($ids)";
 	}
+	// print_r($whereid);
+	// print_r($prodcantidad);
+	// die();
 	if (isset($_POST['marca'])) {
 		$marca = [];
 		foreach ($_POST['marca'] as $key => $value) {
@@ -63,7 +73,14 @@ FIN;
 	    // print_r($data);
 	  }
 	}
+	if (count($prodcantidad)>0) {
+		foreach ($data as $key => $value) {
+			$data[$key]['cantidad']=$prodcantidad[$value['id']];
+		}
+	}
 	// print_r($data);
+	// print_r($prodcantidad);
+	// die();
 	echo (json_encode($data));
 	$conn->close();
 
