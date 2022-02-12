@@ -140,5 +140,5 @@ a[disabled] {
 }
 
 div .textPequeño{
-  font-size:10px;
+  font-size:10px !important;
 }
