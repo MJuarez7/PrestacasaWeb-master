@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	productos = getProductos();
-	console.log(JSON.stringify(productos));
+	// console.log(JSON.stringify(productos));
 	if (productos.length>0) {
 		ids = [];
 		cantidades = [];
@@ -18,12 +18,17 @@ $(document).ready(function() {
 		    {
 		    	// console.log(response);
 		    	var prods = "";
+		    	var subtotal = 0;
 				for (var i = 0; i < response.length; i++) {
 					// console.log(response[i].categoria);
 					prods=prods+"<div><label> Nombre"+response[i].nombre+"</label><br><label>Precio Total"+response[i].moneda+" "+response[i].cantidad*response[i].precio+"</label><br><label>Cantidad:"+response[i].cantidad+"</label><br><img height='200px' src='images/productos/p"+response[i].id+"/1.jpg' ></div><br>";
+					subtotal = subtotal + parseFloat(response[i].cantidad)*parseFloat(response[i].precio);
 				}
-				console.log(response);
+				// console.log(response);
 				$("#productosselecionados").append(prods);
+				$("#subtotalcompra").html(subtotal);
+				console.log($("#valorcupon").html());
+				$("#totalcompra").html(subtotal-0);
 		    }
 		});
 	}
