@@ -122,12 +122,21 @@ $(document).on("click","#aumentarcant",function() {
 	$("#modalcantidad").val(parseInt($("#modalcantidad").val())+1);
 	AgregarCarrito($(this).attr("idproducto"));
 	mostrarContadorbolsa();
+	if (parseInt($("#modalcantidad").val())>0) {
+		$("#disminuircant").removeAttr("disabled").off("click");
+	}
 });
 
 $(document).on("click","#disminuircant",function() {
 	$("#modalcantidad").val(parseInt($("#modalcantidad").val())-1);
 	QuitarProducto($(this).attr("idproducto"));
 	mostrarContadorbolsa();
+	console.log(parseInt($("#modalcantidad").val())<=0);
+	if (parseInt($("#modalcantidad").val())<=0) {
+		$("#disminuircant").attr("disabled", "disabled").on("click", function() {
+		    return false;
+		});
+	}
 });
 
 $(document).on("click",".cerrarmodal", function() {
