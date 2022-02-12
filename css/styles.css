@@ -134,3 +134,7 @@
 a[disabled] {
     pointer-events: none;
 }
+
+.text-gris{
+  color: #58585899;
+}
