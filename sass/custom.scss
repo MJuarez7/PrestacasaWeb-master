@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
-$font-family-base: 'Poppins', cursive;
+
 $primary:  #DB0E53 ;
 $secondary: #0596fc;
 $success : #58585899;
@@ -15,7 +14,8 @@ $spacers: (
   5: $spacer * 3,
   8: 72.6px,
 );
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
+$font-family-base: 'Poppins', cursive;
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 .container-header{
