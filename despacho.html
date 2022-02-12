@@ -42,7 +42,7 @@
     <div class="row">
       <div class="col-4">
         <div class="row">
-          <div class="col-12 text-center text-primary"><span class="material-icons">circle</span>
+          <div class="col-12 text-center text-primary"><span class="material-icons">check_circle_outline</span>
           </div>
           <div class="col-12 text-secondary text-center"><h6>Bolsa de Compras</h6>
           </div>
@@ -50,9 +50,9 @@
       </div>
       <div class="col-4">
         <div class="row">
-          <div class="col-12 text-center text-primary"><span class="material-icons text-gris">circle</span>
+          <div class="col-12 text-center text-primary"><span class="material-icons">circle</span>
           </div>
-          <div class="col-12 text-secondary text-center "><h6 class="text-gris">Despacho</h6>
+          <div class="col-12 text-secondary text-center "><h6>Despacho</h6>
           </div>
         </div>
       </div>
@@ -68,63 +68,40 @@
     <hr>
 </div>
 
-<div class="container mt-2">
-  <div class="row">
-      <div class="col-md-8 col-12 border-0 p-2">
-        <div class="row ">
-        <div id="productosselecionados">
-        </div>
-        </div>
-      </div>
-      <div class="container col-md-4 col-12 bg-white ">
-            <div class="mb-3 mt-2"><h5 class="mb-3">Cupones y descuentos</h5>
-                <div class="row justify-content-center ">
-                    <div class="col-8">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="material-icons">sell</span>
-                            </div>
-                            <input type="text" class="form-control bg-grisClaro" placeholder="Añadir Cupón" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <button type="button" class="btn btn-outline-primary" >Aplicar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3"><h5 class="mb-3">Resumen de tu Orden</h5>
-            </div>
-            <div class="row">
-                <div class="col-8">Sub-total productos 
-                </div>
-                <div class="col-4 text-end">S/ 5,250.40
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8">Descuento por cupón
-                </div>
-                <div class="col-4 text-end">S/ 0.00
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-8">Total
-                </div>
-                <div class="col-4 text-end">S/ 5,250.40
-                </div>
-            </div>
-            <div class="text-center my-3">
-                <button href="despacho.html" type="button" class="btn btn-primary"><span class="material-icons">lock</span> IR A COMPRAR</button>
-            </div>
-            <div class="row ">
-                <div class="col-2"><img src="images/culqi.jpg" class="rounded mx-auto d-block w-100" alt="...">
-                </div>
-                <div class="col-10 text-gris textPequeño">Seguridad y Privacidad garantizada.Comprar aquí es 100% seguro.
-                </div>
-            </div>
-        </div> 
-  </div>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
 
+        </div>
+        <div class="col-12 col-md-6 text-center bg-light mb-3 py-3 border border-primary border-2 rounded">
+        <h4 class="text-primary mb-3">Informacion del cliente</h4>
+        
+        <form action="">
+            <div class="m-2">
+              <label class="d-block text-start" for="">Correo</label><input class="d-block w-100 form-control" type="email" name="correoc" id="">
+            </div>
+            <div class="m-2">
+              <label class="d-block text-start" for="">Nombre</label><input class="d-block w-100 form-control" type="text" name="nombrec" id="">
+            </div>
+            <div class="m-2">
+                <label class="d-block text-start" for="">Empresa</label><input class="d-block w-100 form-control" type="email" name="empresac" id="">
+              </div>
+            <div class="m-2">
+              <label class=" d-block text-start " for="">Teléfono</label><input class="d-block w-100 form-control" type="text" name="telefonoc" id="">
+            </div>  
+            <div class="m-2">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Mensaje"></textarea>
+              </div>  
+            <br> 
+            <div class="m-2 d-flex justify-content-md-start justify-content-center ">
+               <input class="btn btn-secondary" type="submit" value="ENVIAR">
+            </div>
+        </form>
+        <div class="col-md-3">
+
+        </div>
+    </div> 
+</div>
 </body>
 </html>
