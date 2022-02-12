@@ -138,3 +138,7 @@ a[disabled] {
 .text-gris{
   color: #58585899;
 }
+
+.textPequeño{
+  font-size:10px;
+}
