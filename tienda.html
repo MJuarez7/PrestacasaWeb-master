@@ -37,7 +37,7 @@
       </form>
      </div>
       <button id="buttonLogin" type="button" class="btn btn-secondary text-light"><span class="material-icons">account_circle</span> Iniciar Sesión</button>
-      <a id="buttonMarket" class="btn btn-primary me-5 text-light" href="bolsacompra.html" role="button"><span class="material-icons">local_mall</span>BOLSA<span class="badge rounded-pill bg-secondary">contador</span></a>
+      <a id="buttonMarket" class="btn btn-primary me-5 text-light" href="bolsacompra.html" role="button"><span class="material-icons">local_mall</span>BOLSA<span class="badge rounded-pill bg-secondary contadorbolsa">0</span></a>
     </div>
   </nav>
   <div class="container-fluid mt-8 bg-primary container-anuncio">
@@ -225,7 +225,9 @@
               <label id="modalprecio"></label>  
               </div>
              <div class="col-md-3 col-3">
-            <input class="form-control" type="number" id="modalcantidad" value="1">
+              <a class="btn btn-primary" id="aumentarcant">+</a>
+              <input class="form-control" readonly="readonly" type="text" id="modalcantidad" value="1">
+              <a class="btn btn-primary" id="disminuircant">-</a>
              </div>  
             </div>
           </form>

@@ -1,3 +1,22 @@
+function mostrarContadorbolsa() {
+	getproductos = getProductos();
+	productosseleccionados = [];
+	if (getproductos) {
+		for (var i = 0; i < getproductos.length; i++) {
+			productosseleccionados.push({'id':getproductos[i][0],
+									'cantidad':getproductos[i][1]});
+		}
+	}
+	contador = 0;
+	if (productosseleccionados.length>0) {
+		for (var i = 0; i < productosseleccionados.length; i++) {
+			// console.log(productosseleccionados[i]['id']);
+			contador=contador+parseInt(productosseleccionados[i]['cantidad']);
+		}
+	}
+	$(".contadorbolsa").html(contador);
+}
+
 $(document).ready(function () {
 	
 	$.ajax({
@@ -62,6 +81,7 @@ $(document).ready(function () {
 		  $("#productos").append(productos);
 		}
 	});
+	mostrarContadorbolsa();
 });
 
 $(document).on("click",".myproducto", function() {
@@ -69,9 +89,11 @@ $(document).on("click",".myproducto", function() {
 	AgregarCarrito($(this).attr("idproducto"));
 	getproductos = getProductos();
 	productosseleccionados = [];
-	for (var i = 0; i < getproductos.length; i++) {
-		productosseleccionados.push({'id':getproductos[i][0],
-								'cantidad':getproductos[i][1]});
+	if (getproductos) {
+		for (var i = 0; i < getproductos.length; i++) {
+			productosseleccionados.push({'id':getproductos[i][0],
+									'cantidad':getproductos[i][1]});
+		}
 	}
 	// console.log(productosseleccionados);
 	$("#modalid").val($(this).attr("idproducto"));
@@ -80,13 +102,32 @@ $(document).on("click",".myproducto", function() {
 	$("#modalcategoria").html($(this).attr("categoria"));
 	$("#modalnombre").html($(this).attr("nombre"));
 	$("#modalimagen").attr("src",$(this).attr("url"));
-	for (var i = 0; i < productosseleccionados.length; i++) {
-		console.log(productosseleccionados[i]['id']);
-		if (productosseleccionados[i]['id']==$(this).attr("idproducto")) {
-			$("#modalcantidad").val(productosseleccionados[i]['cantidad']);
+
+	if (productosseleccionados.length>0) {
+		for (var i = 0; i < productosseleccionados.length; i++) {
+			// console.log(productosseleccionados[i]['id']);
+			if (productosseleccionados[i]['id']==$(this).attr("idproducto")) {
+				$("#modalcantidad").val(productosseleccionados[i]['cantidad']);
+			}
 		}
 	}
+	// console.log(contador);
+	$("#aumentarcant").attr("idproducto",$(this).attr("idproducto"));
+	$("#disminuircant").attr("idproducto",$(this).attr("idproducto"));
 	$("#modelAgregarProducto").modal();
+	mostrarContadorbolsa();
+});
+
+$(document).on("click","#aumentarcant",function() {
+	$("#modalcantidad").val(parseInt($("#modalcantidad").val())+1);
+	AgregarCarrito($(this).attr("idproducto"));
+	mostrarContadorbolsa();
+});
+
+$(document).on("click","#disminuircant",function() {
+	$("#modalcantidad").val(parseInt($("#modalcantidad").val())-1);
+	QuitarProducto($(this).attr("idproducto"));
+	mostrarContadorbolsa();
 });
 
 $(document).on("click",".cerrarmodal", function() {

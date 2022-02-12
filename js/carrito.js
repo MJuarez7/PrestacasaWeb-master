@@ -51,6 +51,31 @@ function AgregarCarrito(idproducto) {
 	// console.log(nuevosproductos);
 }
 
+function QuitarProducto(idproducto) {
+	productos = JSON.parse(getCookie('carrito-productos'))?JSON.parse(getCookie('carrito-productos')):[];
+	nuevosproductos = [];
+	// console.log(productos);
+	cantidad=1;
+	if (productos.length>0) {
+		for (var i = productos.length - 1; i >= 0; i--) {
+			ids.push(productos[i][0]);
+		}
+
+		if (ids.indexOf(idproducto)<0) {
+			nuevosproductos.push([idproducto,cantidad]);
+		}
+		for (var i = productos.length - 1; i >= 0; i--) {
+			if (productos[i][0]==idproducto) {
+				nuevosproductos.push([productos[i][0],productos[i][1]-1]);
+			}
+			else{
+				nuevosproductos.push([productos[i][0],productos[i][1]]);
+			}
+		}
+	}
+	setCookie("carrito-productos",JSON.stringify(nuevosproductos),2);
+}
+
 function getProductos() {
 	productos = JSON.parse(getCookie('carrito-productos'));
 	return productos;
