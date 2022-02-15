@@ -26,9 +26,9 @@ $(document).ready(function() {
 				}
 				// console.log(response);
 				$("#productosselecionados").append(prods);
-				$("#subtotalcompra").html(subtotal);
-				console.log($("#valorcupon").html());
-				$("#totalcompra").html(subtotal-0);
+				$("#subtotalcompra").html('S/.'+subtotal);
+				// console.log($("#valorcupon").html());//Falta poner valor de cupon
+				$("#totalcompra").html('S/.'+(subtotal-0));
 		    }
 		});
 	}

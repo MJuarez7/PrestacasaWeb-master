@@ -18,7 +18,7 @@
     <script src="js/app.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/carrito.js"></script>
-    <script src="js/bolsacompra.js"></script>
+    <script src="js/despacho.js"></script>
 </head>
 <body class="bg-grisClaro">
     <nav class="navbar navbar-light bg-white fixed-top ">
@@ -76,7 +76,7 @@
         <div class="col-12 col-md-6 text-center bg-light mb-3 py-3 border border-primary border-2 rounded">
         <h4 class="text-primary mb-3">Informacion del cliente</h4>
         
-        <form action="">
+        <form id="formDatosUsuarioCompra">
             <div class="m-2">
               <label class="d-block text-start" for="">Correo</label><input class="d-block w-100 form-control" type="email" name="correoc" id="">
             </div>
@@ -88,11 +88,11 @@
             </div>  
             <div class="m-2">
                     <label for="exampleFormControlTextarea1"></label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Alguna otra indicación de su domicilio"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="comentarioc" rows="3" placeholder="Alguna otra indicación de su domicilio"></textarea>
               </div>  
             <br> 
             <div class="m-2 d-flex justify-content-md-start justify-content-center ">
-               <input class="btn btn-secondary" type="submit" value="ENVIAR">
+               <a class="btn btn-secondary btninfocliente">ENVIAR</a>
             </div>
         </form>
         <div class="col-md-3">
