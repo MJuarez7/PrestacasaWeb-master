@@ -1,3 +1,20 @@
+$(document).ready(function() {
+	$.ajax({
+	    type: "POST",
+	    url: 'database/tienda.php',
+	    dataType: 'json',
+	    data: "productos="+JSON.stringify(productos)+'&condicion=productos',
+	    success: function(response)
+	    {
+	    	var subtotal = 0;
+			for (var i = 0; i < response.length; i++) {
+				subtotal = subtotal + parseFloat(response[i].cantidad)*parseFloat(response[i].precio);
+			}
+			$("#preciototalc").val(subtotal);
+	    }
+	});
+});
+
 $(document).on("click",".btninfocliente",function () {
 	getproductos = getProductos();
 	productosseleccionados = [];

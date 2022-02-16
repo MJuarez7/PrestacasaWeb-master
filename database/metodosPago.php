@@ -2,6 +2,7 @@
 include 'conexion.php';
 
 if (isset($_POST['id_compra'])) {
+
 	$conn = conectar();
 	$idcompra = $_POST['id_compra'];
 	$sql = "SELECT * FROM compra WHERE id_compra=$idcompra";
@@ -14,8 +15,8 @@ if (isset($_POST['id_compra'])) {
 	  }
 	}
 	echo json_encode($data);
+	// print_r($data[0]['preciototal']);die();
 	$conn->close();
-
 }
 
 ?>

@@ -1,24 +1,19 @@
 <?php
 include 'conexion.php';
-// print_r($_POST);
-// print_r($_POST['correoc']);echo "\n";
-// print_r($_POST['nombrec']);echo "\n";
-// print_r($_POST['telefonoc']);echo "\n";
-// print_r($_POST['comentarioc']);echo "\n";
-// print_r(json_decode($_POST['productos']));
+// print_r($_POST);die();
 
 
 $correo = !empty($_POST['correoc']) ? $_POST['correoc'] : null;
 $nombre = !empty($_POST['nombrec']) ? $_POST['nombrec'] : null;
 $telefono = !empty($_POST['telefonoc']) ? $_POST['telefonoc'] : null;
 $comentario = !empty($_POST['comentarioc']) ? $_POST['comentarioc'] : null;
-
+$preciototal = !empty($_POST['preciototalc']) ? $_POST['preciototalc'] : null;
 // print_r($correo && $nombre && $telefono);
 // die();
 	if($correo && $nombre && $telefono){
 	    $consulta = <<<FIN
-	    insert into compra (correo,nombre,telefono,comentario,fecha_despacho,estado)
-	    values ('$correo','$nombre','$telefono','$comentario',now(),1)
+	    insert into compra (correo,nombre,telefono,comentario,fecha_despacho,estado,preciototal)
+	    values ('$correo','$nombre','$telefono','$comentario',now(),1,$preciototal)
 FIN;
 	    // print_r($consulta);die();
 		$conn = conectar();
