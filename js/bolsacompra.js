@@ -14,6 +14,9 @@ $(document).ready(function() {
 		    url: 'database/tienda.php',
 		    dataType: 'json',
 		    data: "productos="+JSON.stringify(productos)+'&condicion=productos',
+		    beforeSend: function(argument) {
+				$("#modalcargando").modal();
+			},
 		    success: function(response)
 		    {
 		    	// console.log(response);
@@ -29,6 +32,9 @@ $(document).ready(function() {
 				$("#subtotalcompra").html('S/.'+subtotal);
 				// console.log($("#valorcupon").html());//Falta poner valor de cupon
 				$("#totalcompra").html('S/.'+(subtotal-0));
+		    },
+		    complete: function() {
+		        $("#modalcargando").modal('hide');
 		    }
 		});
 	}

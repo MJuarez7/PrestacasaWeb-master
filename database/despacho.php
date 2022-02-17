@@ -10,6 +10,7 @@ $comentario = !empty($_POST['comentarioc']) ? $_POST['comentarioc'] : null;
 $preciototal = !empty($_POST['preciototalc']) ? $_POST['preciototalc'] : null;
 // print_r($correo && $nombre && $telefono);
 // die();
+$idproducto = 0;
 	if($correo && $nombre && $telefono){
 	    $consulta = <<<FIN
 	    insert into compra (correo,nombre,telefono,comentario,fecha_despacho,estado,preciototal)
@@ -29,7 +30,6 @@ FIN;
 				}
 			}
 		}
-		
-		echo $idproducto;
 	}
+		echo json_encode($idproducto);
 ?>

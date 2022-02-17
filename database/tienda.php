@@ -6,10 +6,10 @@ include 'conexion.php';
 
 if ($_POST['condicion']=='productos') {
 	$whereid ="1=1";
-	$wheremarca ="1=1";
 	$wherecategoria ="1=1";
 	$whereprecio1 ="1=1";
 	$whereprecio2 ="1=1";
+	$orderby ="";
 	$prodcantidad=[];
 	if (isset($_POST['productos'])) {
 		$id=[];
@@ -25,14 +25,6 @@ if ($_POST['condicion']=='productos') {
 	// print_r($whereid);
 	// print_r($prodcantidad);
 	// die();
-	if (isset($_POST['marca'])) {
-		$marca = [];
-		foreach ($_POST['marca'] as $key => $value) {
-			$marca[]="'".$key."'";
-		}
-		$marcas = implode(",", $marca);
-		$wheremarca = count($marca)>0?"marca in ($marcas)":"1=1";
-	}
 	if (isset($_POST['categoria'])) {
 		$categoria = [];
 		foreach ($_POST['categoria'] as $key => $value) {
@@ -49,10 +41,25 @@ if ($_POST['condicion']=='productos') {
 		$precio2 = $_POST['precio2'];
 		$whereprecio2 = "precio <= ($precio2)";
 	}
+
+	if (isset($_POST['ordenamiento']) && !empty($_POST['ordenamiento'])) {
+		if ($_POST['ordenamiento']==1) {
+			$orderby = "order by precio asc";
+		}elseif ($_POST['ordenamiento']==2) {
+			$orderby = "order by precio desc";
+		}else{
+			$orderby = "order by prioridad desc";
+		}
+	}
+
 	$conn = conectar();
 	$sql = <<<FIN
-	SELECT id,nombre,categoria,marca,moneda,precio,descripcion,oferta FROM productos where $wheremarca and $wherecategoria and $whereprecio1 and $whereprecio2 and $whereid
+	SELECT id,nombre,categoria,moneda,precio,descripcion,oferta FROM productos where $wherecategoria and $whereprecio1 and $whereprecio2 and $whereid
 FIN;
+	// print_r($sql);die();
+	if ($orderby<>"") {
+		$sql = $sql." ".$orderby;
+	}
 	// print_r($sql);
 	$result = $conn->query($sql);
 	// print_r($result);
@@ -64,9 +71,9 @@ FIN;
 	  		'id'=>$row['id'],
 	  		'nombre'=>htmlentities($row['nombre']),
 			'categoria'=>$row['categoria'],
-			'marca'=>$row['marca'],
 			'moneda'=>$row['moneda'],
 			'precio'=>$row['precio'],
+			'oferta'=>$row['oferta'],
 			'descripcion'=>htmlentities($row['descripcion']),
 	  	];
 	    // array_push($data,json_encode($row));

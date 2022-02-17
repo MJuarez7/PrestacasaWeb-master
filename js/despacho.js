@@ -4,6 +4,9 @@ $(document).ready(function() {
 	    url: 'database/tienda.php',
 	    dataType: 'json',
 	    data: "productos="+JSON.stringify(productos)+'&condicion=productos',
+	    beforeSend: function(argument) {
+			$("#modalcargando").modal();
+		},
 	    success: function(response)
 	    {
 	    	var subtotal = 0;
@@ -11,6 +14,9 @@ $(document).ready(function() {
 				subtotal = subtotal + parseFloat(response[i].cantidad)*parseFloat(response[i].precio);
 			}
 			$("#preciototalc").val(subtotal);
+	    },
+		complete: function() {
+	        $("#modalcargando").modal('hide');
 	    }
 	});
 });
@@ -29,10 +35,20 @@ $(document).on("click",".btninfocliente",function () {
 	    url: 'database/despacho.php',
 	    dataType: 'json',
 	    data: "productos="+JSON.stringify(productosseleccionados)+"&"+$("#formDatosUsuarioCompra").serialize(),
+		beforeSend: function(argument) {
+			$("#modalcargando").modal();
+		},
 	    success: function(response)
 	    {
-	      // console.log(response);
-	      window.location = 'metodosPago.html?idcompra=' + response;
+	      console.log(response);
+	      if (response==0) {
+	      	alert("Necesitamos al menos tu correo, nombre y teléfono");
+	      }else{
+	      	window.location = 'metodosPago.html?idcompra=' + response;
+	      }
+	    },
+		complete: function() {
+	        $("#modalcargando").modal('hide');
 	    }
 	});
 });
