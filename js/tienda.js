@@ -18,31 +18,14 @@ function mostrarContadorbolsa() {
 }
 
 $(document).ready(function () {
-	
-	$.ajax({
-	    type: "POST",
-	    url: 'database/marca.php',
-	    dataType: 'json',
-	    data: 'condicion=marca',
-	    success: function(response)
-	    {
-	      // console.log(response);
-	      var marcas = "";
-	      for (var i = 0; i < response.length; i++) {
-	      	// console.log(response[i].marca);
-	      	marcas=marcas+"<input type='checkbox' class='cmarcas' name='marca["+response[i].marca+"]'>"+
-	      	"<label>"+response[i].marca+"</label><br>";
-	      }
-	      // console.log(marcas);
-	      $("#marcas").html(marcas);
-	    }
-	});
-
 	$.ajax({
 		type: "POST",
 		url: 'database/categoria.php',
 		dataType: 'json',
 		data: 'condicion=categoria',
+		beforeSend: function(argument) {
+			$("#modalcargando").modal();
+		},
 		success: function(response)
 		{
 		  // console.log(response);
@@ -54,12 +37,12 @@ $(document).ready(function () {
 		  }
 		  // console.log(categorias);
 		  $("#categorias").append(categorias);
-		}
+		},
+		complete: function() {
+	        $("#modalcargando").modal('hide');
+	    }
 	});
 
-	$("#marca").click(function(){
-	    $("#marcas").slideToggle("slow");
-	});
 	$("#categoria").click(function(){
 	    $("#categorias").slideToggle("slow");
 	});
@@ -71,6 +54,9 @@ $(document).ready(function () {
 		url: 'database/tienda.php',
 		dataType: 'json',
 		data: 'condicion=productos',
+		beforeSend: function(argument) {
+			$("#modalcargando").modal();
+		},
 		success: function(response)
 		{
 		  var productos = "";
@@ -79,7 +65,10 @@ $(document).ready(function () {
 			  productos=productos+"<div class='col-md-3 col-6 my-1'><div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'><div class='card-body'><h6 class='card-title'style='font-size: 14px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 12px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 14px;'>"+response[i].moneda+response[i].precio+"</p></div><button type='button' class='btn btn-primary ms-md-3 me-md-3 ms-1 me-1 mb-1 myproducto' idproducto='"+response[i].id+"' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'>Agregar a la bolsa</button></div></div>";
 		  }
 		  $("#productos").append(productos);
-		}
+		},
+		complete: function() {
+	        $("#modalcargando").modal('hide');
+	    }
 	});
 	mostrarContadorbolsa();
 });
@@ -99,6 +88,7 @@ $(document).on("click",".myproducto", function() {
 	$("#modalid").val($(this).attr("idproducto"));
 	$("#modalmoneda").html($(this).attr("moneda"));
 	$("#modalprecio").html($(this).attr("precio"));
+	$("#modalpreciounit").val($(this).attr("precio"));
 	$("#modalcategoria").html($(this).attr("categoria"));
 	$("#modalnombre").html($(this).attr("nombre"));
 	$("#modalimagen").attr("src",$(this).attr("url"));
@@ -108,6 +98,9 @@ $(document).on("click",".myproducto", function() {
 			// console.log(productosseleccionados[i]['id']);
 			if (productosseleccionados[i]['id']==$(this).attr("idproducto")) {
 				$("#modalcantidad").val(productosseleccionados[i]['cantidad']);
+				if (productosseleccionados[i]['cantidad']>0) {
+					$("#modalprecio").html(parseFloat($(this).attr("precio"))*parseFloat(productosseleccionados[i]['cantidad']));
+				}
 			}
 		}
 	}
@@ -116,10 +109,15 @@ $(document).on("click",".myproducto", function() {
 	$("#disminuircant").attr("idproducto",$(this).attr("idproducto"));
 	$("#modelAgregarProducto").modal();
 	mostrarContadorbolsa();
+	if (parseInt($("#modalcantidad").val())>0) {
+		$("#disminuircant").removeAttr("disabled").off("click");
+	}
 });
 
 $(document).on("click","#aumentarcant",function() {
-	$("#modalcantidad").val(parseInt($("#modalcantidad").val())+1);
+	nuevovalor = parseInt($("#modalcantidad").val())+1;
+	$("#modalcantidad").val(nuevovalor);
+	$("#modalprecio").html(parseFloat($("#modalpreciounit").val())*parseFloat(nuevovalor));
 	AgregarCarrito($(this).attr("idproducto"));
 	mostrarContadorbolsa();
 	if (parseInt($("#modalcantidad").val())>0) {
@@ -128,7 +126,9 @@ $(document).on("click","#aumentarcant",function() {
 });
 
 $(document).on("click","#disminuircant",function() {
-	$("#modalcantidad").val(parseInt($("#modalcantidad").val())-1);
+	nuevovalor = parseInt($("#modalcantidad").val())-1;
+	$("#modalcantidad").val(nuevovalor);
+	$("#modalprecio").html(parseFloat($("#modalpreciounit").val())*parseFloat(nuevovalor));
 	QuitarProducto($(this).attr("idproducto"));
 	mostrarContadorbolsa();
 	console.log(parseInt($("#modalcantidad").val())<=0);
@@ -163,6 +163,9 @@ function consultarproductos(data) {
 		url: 'database/tienda.php',
 		dataType: 'json',
 		data: data+'&condicion=productos',
+		beforeSend: function(argument) {
+			$("#modalcargando").modal();
+		},
 		success: function(response)
 		{
 		  // console.log(response);
@@ -173,7 +176,10 @@ function consultarproductos(data) {
 			  productos=productos+"<div class='col-md-3 col-6 my-1'><div class='card h-100'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'><div class='card-body'><h6 class='card-title'style='font-size: 14px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 12px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 14px;'>"+response[i].moneda+response[i].precio+"</p></div><button type='button' class='btn btn-primary ms-md-3 me-md-3 ms-1 me-1 mb-1 myproducto' idproducto='"+response[i].id+"' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'>Agregar a la bolsa</button></div></div>";
 		  }
 		  $("#productos").html(productos);
-		}
+		},
+		complete: function() {
+	        $("#modalcargando").modal('hide');
+	    }
 	});
 }
 

@@ -22,6 +22,9 @@ $(document).ready(function () {
 		    url: 'database/metodosPago.php',
 		    dataType: 'json',
 		    data: "id_compra="+getParameterByName("idcompra"),
+		    beforeSend: function(argument) {
+				$("#modalcargando").modal();
+			},
 		    success: function(response)
 		    {
 		    	// console.log(response[0].preciototal);
@@ -32,6 +35,9 @@ $(document).ready(function () {
 					description: '',
 					amount: response[0].preciototal*100
 				});
+		    },
+		    complete: function() {
+		        $("#modalcargando").modal('hide');
 		    }
 		});
 	}
@@ -56,9 +62,15 @@ function culqi() {
 		    	id_compra:getParameterByName("idcompra"),
 		    	token:token
 		    },
+		    beforeSend: function(argument) {
+				$("#modalcargando").modal();
+			},
 		    success: function(response)
 		    {
 		    	alert(response);
+		    },
+		    complete: function() {
+		        $("#modalcargando").modal('hide');
 		    }
 		});
   } else { // ¡Hubo algún problema!

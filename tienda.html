@@ -84,7 +84,7 @@
     </div>
   </div>
   <br><br>
-  <div>
+  <!-- <div>
     <table>
       <thead>
         <tr>
@@ -95,12 +95,15 @@
       </thead>
       <tbody id="tcarrito"></tbody>
     </table>
-  </div>
+  </div> -->
 </div>
   <style type="text/css">
-    #marcas,#categorias,#precios {
+
+    /*Si es celular aplicar este estilo*/
+    /*#categorias,#precios {
       display: none;
-    }
+    }*/
+    
   </style>
   <!-- footer -->
 <br>
@@ -222,7 +225,8 @@
               </div>
               <div class="col-md-3 col-3 text-center">
               <label id="modalmoneda"></label>
-              <label id="modalprecio"></label>  
+              <label id="modalprecio"></label>
+              <input type="text" id="modalpreciounit" hidden="hidden">
               </div>
              <div class="col-md-3 col-3">
               <a class="btn btn-primary" id="aumentarcant">+</a>
@@ -240,5 +244,9 @@
     </div>
   </div>
 
-
+  <div id="modalcargando" class="text-center modal">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
 </html>
