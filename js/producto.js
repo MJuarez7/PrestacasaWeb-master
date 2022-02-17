@@ -23,9 +23,10 @@ $(document).ready(function () {
 		    	$("#imgproducto").attr("src",$url);
 		    	$("#catproducto").html(response[0].categoria);
 		    	$("#nombproducto").html(response[0].nombre);
-		    	$("#oferproducto").html(response[0].oferta);
+		    	$("#oferproducto").html(response[0].oferta+'% (OFERTA)');
 		    	$("#preproducto").html(response[0].precio);
-		    	$("#oferpreproducto").html(response[0].precio);
+		    	preciooferta = parseFloat(response[0].precio)*((parseFloat(response[0].oferta)+100.0)/100.0);
+		    	$("#oferpreproducto").html(preciooferta);
 		    },
 			complete: function() {
 		        $("#modalcargando").modal('hide');
