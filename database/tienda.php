@@ -9,8 +9,12 @@ if ($_POST['condicion']=='productos') {
 	$wherecategoria ="1=1";
 	$whereprecio1 ="1=1";
 	$whereprecio2 ="1=1";
+	$whereidproducto = "1=1";
 	$orderby ="";
 	$prodcantidad=[];
+	if (isset($_POST['idproducto'])) {
+		$whereidproducto = "id = '".$_POST['idproducto']."'";
+	}
 	if (isset($_POST['productos'])) {
 		$id=[];
 		// print_r(json_decode($_POST['productos']));die();
@@ -54,13 +58,12 @@ if ($_POST['condicion']=='productos') {
 
 	$conn = conectar();
 	$sql = <<<FIN
-	SELECT id,nombre,categoria,moneda,precio,descripcion,oferta FROM productos where $wherecategoria and $whereprecio1 and $whereprecio2 and $whereid
+	SELECT id,nombre,categoria,moneda,precio,descripcion,oferta FROM productos where $wherecategoria and $whereprecio1 and $whereprecio2 and $whereid and $whereidproducto
 FIN;
-	// print_r($sql);die();
 	if ($orderby<>"") {
 		$sql = $sql." ".$orderby;
 	}
-	// print_r($sql);
+	
 	$result = $conn->query($sql);
 	// print_r($result);
 	$data=[];

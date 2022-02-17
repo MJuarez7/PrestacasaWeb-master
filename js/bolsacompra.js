@@ -24,8 +24,12 @@ $(document).ready(function() {
 		    	var subtotal = 0;
 				for (var i = 0; i < response.length; i++) {
 					// console.log(response[i].categoria);
-					prods=prods+"<div><label> Nombre"+response[i].nombre+"</label><br><label>Precio Total"+response[i].moneda+" "+response[i].cantidad*response[i].precio+"</label><br><label>Cantidad:"+response[i].cantidad+"</label><br><img height='200px' src='images/productos/p"+response[i].id+"/1.jpg' ></div><br>";
-					subtotal = subtotal + parseFloat(response[i].cantidad)*parseFloat(response[i].precio);
+					if (parseFloat(response[i].cantidad)>0) {
+						prods=prods+"<div class='container form-control my-1'>"+
+						"<label> Nombre"+response[i].nombre+"</label><br><label>Precio Total"+response[i].moneda+" "+response[i].cantidad*response[i].precio+"</label><br><label>Cantidad:"+response[i].cantidad+"</label><br><img height='200px' src='images/productos/p"+response[i].id+"/1.jpg' >"+
+						"</div><br>";
+						subtotal = subtotal + parseFloat(response[i].cantidad)*parseFloat(response[i].precio);
+					}
 				}
 				// console.log(response);
 				$("#productosselecionados").append(prods);
