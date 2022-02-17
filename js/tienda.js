@@ -144,7 +144,7 @@ $(document).on("click",".cerrarmodal", function() {
 	$("#modelAgregarProducto").modal('hide');
 });
 
-$(document).on("click",".cmarcas",function(argument) {
+$(document).on("change","#ordenamiento",function(argument) {
 	consultarproductos($("#formfiltros").serialize());
 });
 

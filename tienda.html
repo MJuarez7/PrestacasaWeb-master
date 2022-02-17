@@ -56,9 +56,9 @@
   
 
   <div class="container mt-md-4 mt-8">
+  <form id="formfiltros">
   <div class="row">
     <div id="filtros" class="col-md-3 col-12">
-      <form id="formfiltros">
         <div class="row">
           <div class="col-md-12 col-6">
         <div id="categoria" class="container form-control my-1">Categoria</div>
@@ -74,28 +74,24 @@
           <button type="button" id="buscar" class="btn btn-primary mt-2">Filtrar</button></div>
         </div>
         </div>
-        </div>  
-        </form>
+        </div>
     </div>
     
     <div class="col-md-9 col-12">
+        <div>
+          <label>Ordenar Por:</label>
+          <select id="ordenamiento" name="ordenamiento">
+            <option value="3">Recomendados</option>
+            <option value="2">Precio de mayor a menor</option>
+            <option value="1">Precio de menor a mayor</option>
+          </select>
+        </div>
         <div id="productos" class="row">
         </div>
     </div>
   </div>
+  </form>
   <br><br>
-  <!-- <div>
-    <table>
-      <thead>
-        <tr>
-          <td>cantidad</td>
-          <td>producto</td>
-          <td>submonto</td>
-        </tr>
-      </thead>
-      <tbody id="tcarrito"></tbody>
-    </table>
-  </div> -->
 </div>
   <style type="text/css">
 
@@ -103,9 +99,8 @@
     /*#categorias,#precios {
       display: none;
     }*/
-    
+
   </style>
-  <!-- footer -->
 <br>
 <hr>
 <br>

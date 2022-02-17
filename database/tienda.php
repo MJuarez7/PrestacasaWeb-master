@@ -9,8 +9,7 @@ if ($_POST['condicion']=='productos') {
 	$wherecategoria ="1=1";
 	$whereprecio1 ="1=1";
 	$whereprecio2 ="1=1";
-	$orderbypre ="";
-	$orderbypri ="";
+	$orderby ="";
 	$prodcantidad=[];
 	if (isset($_POST['productos'])) {
 		$id=[];
@@ -43,14 +42,14 @@ if ($_POST['condicion']=='productos') {
 		$whereprecio2 = "precio <= ($precio2)";
 	}
 
-	if (isset($_POST['orderbyprecio']) && !empty($_POST['orderbyprecio'])) {
-		$orderbyprecio = $_POST['orderbyprecio'];
-		$orderbypre = "order by precio $orderbyprecio";
-	}
-
-	if (isset($_POST['orderbyprioridad']) && !empty($_POST['orderbyprioridad'])) {
-		$orderbyprioridad = $_POST['orderbyprioridad'];
-		$orderbypri = "order by prioridad $orderbyprioridad";
+	if (isset($_POST['ordenamiento']) && !empty($_POST['ordenamiento'])) {
+		if ($_POST['ordenamiento']==1) {
+			$orderby = "order by precio asc";
+		}elseif ($_POST['ordenamiento']==2) {
+			$orderby = "order by precio desc";
+		}else{
+			$orderby = "order by prioridad desc";
+		}
 	}
 
 	$conn = conectar();
@@ -58,11 +57,8 @@ if ($_POST['condicion']=='productos') {
 	SELECT id,nombre,categoria,moneda,precio,descripcion,oferta FROM productos where $wherecategoria and $whereprecio1 and $whereprecio2 and $whereid
 FIN;
 	// print_r($sql);die();
-	if ($orderbypre<>"") {
-		$sql = $sql." ".$orderbypre;
-	}
-	if ($orderbypri<>"") {
-		$sql = $sql." ".$orderbypri;
+	if ($orderby<>"") {
+		$sql = $sql." ".$orderby;
 	}
 	// print_r($sql);
 	$result = $conn->query($sql);
