@@ -72,7 +72,7 @@ new Splide( '.splide' ).mount( window.splide.Extensions );
             type   : 'loop',
             pauseOnHover: boolean = true,
             focus  : 'center',
-            perPage: 1,
+            perPage: 2,
             autoScroll: {
               speed: 2,
             },
@@ -85,7 +85,7 @@ new Splide( '.splide' ).mount( window.splide.Extensions );
             type   : 'loop',
             pauseOnHover: boolean = true,
             focus  : 'center',
-            perPage: 4,
+            perPage: 5,
             autoScroll: {
               speed: 2,
             },
