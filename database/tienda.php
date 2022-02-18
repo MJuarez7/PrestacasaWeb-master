@@ -52,7 +52,7 @@ if ($_POST['condicion']=='productos') {
 		}elseif ($_POST['ordenamiento']==2) {
 			$orderby = "order by precio desc";
 		}else{
-			$orderby = "order by prioridad desc";
+			$orderby = "order by prioridad asc";
 		}
 	}
 
@@ -94,6 +94,28 @@ FIN;
 	echo (json_encode($data));
 	$conn->close();
 
+}
+
+if ($_POST['condicion']=='productostop') {
+	$categoria = "1=1";
+	if ($_POST['categoria']) {
+		$categoria = $_POST['categoria'];
+	}
+	$conn = conectar();
+	$sql = <<<FIN
+	SELECT id,nombre,categoria,moneda,precio,descripcion,oferta,prioridad FROM productos
+	where categoria='$categoria'
+	order by prioridad asc limit 4
+FIN;
+	$result = $conn->query($sql);
+	$data=[];
+	if ($result->num_rows > 0) {
+	  while($row = $result->fetch_assoc()) {
+	    array_push($data,$row);
+	  }
+	}
+	echo json_encode($data);
+	$conn->close();
 }
 
 ?>
