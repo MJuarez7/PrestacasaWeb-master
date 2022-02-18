@@ -1,3 +1,20 @@
+function getOferta(precio) {
+	if (parseFloat(precio)<=30) {
+		oferta = 55.0;
+	}else if (parseFloat(precio)>=31 && parseFloat(precio)<=50) {
+		oferta = 45.0;
+	}else if (parseFloat(precio)<=51 && parseFloat(precio)>=70) {
+		oferta = 35.0;
+	}else if (parseFloat(precio)<=71 && parseFloat(precio)>=90) {
+		oferta = 25.0;
+	}else if (parseFloat(precio)<=91 && parseFloat(precio)>=110) {
+		oferta = 20.0;
+	}else{
+		oferta = 15.0;
+	}
+	return oferta;
+}
+
 function mostrarContadorbolsa() {
 	getproductos = getProductos();
 	productosseleccionados = [];
@@ -61,8 +78,9 @@ $(document).ready(function () {
 		{
 		  var productos = "";
 		  for (var i = 0; i < response.length; i++) {
+		  	  oferta = getOferta(response[i].precio);
 			  $url = "images/productos/p"+response[i].id+"/1.jpg";
-			  productos=productos+"<div class='col-md-3 col-6 my-1'><div class='card h-100'><a href='producto.html?idproducto="+response[i].id+"'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'></a><div class='card-body'><h6 class='card-title'style='font-size: 14px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 12px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 14px;'>"+response[i].moneda+response[i].precio+"</p></div><button type='button' class='btn btn-primary ms-md-3 me-md-3 ms-1 me-1 mb-1 myproducto' idproducto='"+response[i].id+"' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'>Agregar a la bolsa</button></div></div>";
+			  productos=productos+"<div class='col-md-3 col-6 my-1'><div class='card h-100'><a href='producto.html?idproducto="+response[i].id+"'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'></a><div class='card-body'><h6 class='card-title'style='font-size: 14px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 12px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 14px;'>"+response[i].moneda+response[i].precio+"</p><p class='card-text' style='font-size: 14px;'>"+oferta+" %</p></div><button type='button' class='btn btn-primary ms-md-3 me-md-3 ms-1 me-1 mb-1 myproducto' idproducto='"+response[i].id+"' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'>Agregar a la bolsa</button></div></div>";
 		  }
 		  $("#productos").append(productos);
 		},
@@ -171,9 +189,9 @@ function consultarproductos(data) {
 		  // console.log(response);
 		  var productos = "";
 		  for (var i = 0; i < response.length; i++) {
-		  	// console.log(response[i].nombre);
+		  	oferta = getOferta(response[i].precio);
 			  $url = "images/productos/p"+response[i].id+"/1.jpg";
-			  productos=productos+"<div class='col-md-3 col-6 my-1'><div class='card h-100'><a href='producto.html?idproducto="+response[i].id+"'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'></a><div class='card-body'><h6 class='card-title'style='font-size: 14px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 12px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 14px;'>"+response[i].moneda+response[i].precio+"</p></div><button type='button' class='btn btn-primary ms-md-3 me-md-3 ms-1 me-1 mb-1 myproducto' idproducto='"+response[i].id+"' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'>Agregar a la bolsa</button></div></div>";
+			  productos=productos+"<div class='col-md-3 col-6 my-1'><div class='card h-100'><a href='producto.html?idproducto="+response[i].id+"'><img src='"+$url+"' class='card-img-top' alt='"+response[i].nombre+"'></a><div class='card-body'><h6 class='card-title'style='font-size: 14px;'>"+response[i].nombre+"</h6> <p class='card-text' style='font-size: 12px; color:#58585899'> "+response[i].categoria+"</p><p class='card-text fw-bold' 'style='font-size: 14px;'>"+response[i].moneda+response[i].precio+"</p><p class='card-text' style='font-size: 14px;'>"+oferta+" %</p></div><button type='button' class='btn btn-primary ms-md-3 me-md-3 ms-1 me-1 mb-1 myproducto' idproducto='"+response[i].id+"' nombre='"+response[i].nombre+"' categoria='"+response[i].categoria+"' moneda='"+response[i].moneda+"' precio='"+response[i].precio+"'  url='"+$url+"'>Agregar a la bolsa</button></div></div>";
 		  }
 		  $("#productos").html(productos);
 		},
