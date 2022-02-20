@@ -69,7 +69,7 @@ $(document).ready(function () {
 	    dataType: 'json',
 	    data: {
 	    	condicion:'productostop',
-	    	categoria:'FITNESS'
+	    	categoria:'FITNES'
 	    },
 	    success: function(response)
 	    {
