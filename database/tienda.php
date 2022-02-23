@@ -15,6 +15,20 @@ if ($_POST['condicion']=='productos') {
 	if (isset($_POST['idproducto'])) {
 		$whereidproducto = "id = '".$_POST['idproducto']."'";
 	}
+	$valor = false;
+	if (isset($_POST['idproducto']) && isset($_POST['productos'])) {
+		// print_r($_POST['idproducto']);echo "\n";
+		// print_r($_POST['productos']);echo "\n";
+		$prods = [];
+		foreach (json_decode($_POST['productos']) as $key => $value) {
+			array_push($prods, $value[0]);
+		}
+		if (!in_array($_POST['idproducto'], $prods)) {
+			unset($_POST['productos']);
+			$valor = true;
+		}
+	}
+	// die();
 	if (isset($_POST['productos'])) {
 		$id=[];
 		// print_r(json_decode($_POST['productos']));die();
@@ -88,7 +102,12 @@ FIN;
 			$data[$key]['cantidad']=$prodcantidad[$value['id']];
 		}
 	}
-	// print_r($data);
+	if ($valor) {
+		foreach ($data as $key => $value) {
+			$data[$key]['cantidad']=0;
+		}
+	}
+	// print_r($data);die();
 	// print_r($prodcantidad);
 	// die();
 	echo (json_encode($data));

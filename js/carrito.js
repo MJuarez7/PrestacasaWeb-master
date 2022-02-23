@@ -56,6 +56,7 @@ function QuitarProducto(idproducto) {
 	nuevosproductos = [];
 	// console.log(productos);
 	cantidad=1;
+	ids=[];
 	if (productos.length>0) {
 		for (var i = productos.length - 1; i >= 0; i--) {
 			ids.push(productos[i][0]);
