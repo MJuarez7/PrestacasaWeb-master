@@ -55,10 +55,24 @@ $(document).ready(function () {
 			},
 		    success: function(response)
 		    {
-		    	console.log(response[0]);
+		    	// console.log(response[0]);
 		    	oferta = getOferta(response[0].precio);
-		    	$url = "images/productos/p"+response[0].id+"/1.jpg";
-		    	$("#imgproducto").attr("src",$url);
+		    	// $url = "images/productos/p"+response[0].id+"/1.jpg";
+		    	// $("#imgproducto").attr("src",$url);
+
+		    	$url1 = "images/productos/p"+response[0].id+"/1.jpg";
+		    	$url2 = "images/productos/p"+response[0].id+"/2.jpg";
+		    	$url3 = "images/productos/p"+response[0].id+"/3.jpg";
+		    	$url4 = "images/productos/p"+response[0].id+"/4.jpg";
+		    	$url5 = "images/productos/p"+response[0].id+"/5.jpg";
+		    	$url6 = "images/productos/p"+response[0].id+"/6.jpg";
+		    	$(".imgproducto1").attr("src",$url1);
+		    	$(".imgproducto2").attr("src",$url2);
+		    	$(".imgproducto3").attr("src",$url3);
+		    	$(".imgproducto4").attr("src",$url4);
+		    	$(".imgproducto5").attr("src",$url5);
+		    	$(".imgproducto6").attr("src",$url6);
+
 		    	$("#catproducto").html(response[0].categoria);
 		    	$("#nombproducto").html(response[0].nombre);
 		    	$("#oferproducto").html(oferta+'% (OFERTA)');
@@ -88,6 +102,34 @@ $(document).ready(function () {
 	}else{
 		window.location = 'tienda.html';
 	}
+
+
+
+	var main = new Splide( '#main', {
+		type      : 'fade',
+		rewind    : true,
+		pagination: false,
+		arrows    : false,
+	} );
+
+	var thumbnails = new Splide( '#thumbnail', {
+		fixedWidth  : 100,
+		fixedHeight : 60,
+		gap         : 10,
+		rewind      : true,
+		pagination  : false,
+		isNavigation: true,
+		breakpoints : {
+		  600: {
+		    fixedWidth : 60,
+		    fixedHeight: 44,
+		  },
+		},
+	} );
+
+	main.sync( thumbnails );
+	main.mount();
+	thumbnails.mount();
 });
 
 

@@ -37,9 +37,10 @@ $charge = $culqi->Charges->create(
 );
 
 $conn = conectar();
-$update = "UPDATE compra estado='2',fecha_pago=now() WHERE id_compra=$idcompra";
+$update = "UPDATE compra SET estado='2',fecha_pago=now() WHERE id_compra=$idcompra";
 mysqli_query($conn, $update);
 $conn->close();
-echo json_encode("éxito");
+echo "exito";
+exit();
 
 ?>

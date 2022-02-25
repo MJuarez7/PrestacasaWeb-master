@@ -27,14 +27,16 @@ $(document).ready(function () {
 			},
 		    success: function(response)
 		    {
-		    	// console.log(response[0].preciototal);
-		    	Culqi.publicKey = 'sk_test_4610c3692687a261';
-				Culqi.settings({
-					title: 'Pago de Producto(s)',
-					currency: 'PEN',
-					description: '',
-					amount: response[0].preciototal*100
-				});
+		    	// console.log(response[0].estado);
+		    	if (!(parseInt(response[0].estado)==2)) {
+			    	Culqi.publicKey = 'sk_test_4610c3692687a261';
+					Culqi.settings({
+						title: 'Pago de Producto(s)',
+						currency: 'PEN',
+						description: '',
+						amount: response[0].preciototal*100
+					});
+				}
 		    },
 		    complete: function() {
 		        $("#modalcargando").modal('hide');
@@ -67,7 +69,16 @@ function culqi() {
 			},
 		    success: function(response)
 		    {
-		    	alert(response);
+		    	setCookie("carrito-productos","","1");
+		    	window.location = 'tienda.html';
+		    	// if (response=="exito") {
+		    	// 	// console.log("1");
+		    	// 	setCookie("carrito-productos","","1");
+		    	// 	// console.log("2");
+		    	// 	window.location = 'tienda.html';
+		    	// }else{
+		    	// 	alert("Hubo un problema con la compra");
+		    	// }
 		    },
 		    complete: function() {
 		        $("#modalcargando").modal('hide');
