@@ -78,7 +78,7 @@ function QuitarProducto(idproducto) {
 }
 
 function getProductos() {
-	productos = JSON.parse(getCookie('carrito-productos'));
+	productos = getCookie('carrito-productos')?JSON.parse(getCookie('carrito-productos')):[];
 	return productos;
 }
 

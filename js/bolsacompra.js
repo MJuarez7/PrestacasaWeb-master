@@ -73,6 +73,7 @@ function ProductosVista() {
 
 $(document).ready(function() {
 	ProductosVista();
+	mostrarContadorbolsa();
 });
 
 $(document).on("click","#aumentarcant",function() {
@@ -100,4 +101,16 @@ $(document).on("click","#disminuircant",function() {
 		});
 	}
 	ProductosVista();
+});
+
+$(document).on("click",".despachar",function(e) {
+	e.preventDefault();
+	productos = getProductos();
+	// console.log(productos);
+	// console.log(parseInt($(".contadorbolsa").html()));
+	if (parseInt($(".contadorbolsa").html())>0) {
+		window.location = 'despacho.html';
+	}else{
+		alert("No hay productos para comprar");
+	}
 });
