@@ -1,3 +1,13 @@
+function hoverimage(obj,idproducto) {
+	// console.log($(obj));
+	// console.log(idproducto);
+	$(obj).hover(function() {
+	    $(this).css("content", "url(images/productos/p"+idproducto+"/2.jpg)");
+	  }, function() {
+	  	$(this).css("content", "url(images/productos/p"+idproducto+"/1.jpg)");
+	  }
+	);
+}
 $(document).ready(function () {
   	$.ajax({
 	    type: "POST",
@@ -17,6 +27,8 @@ $(document).ready(function () {
 	      	$(".hogarp"+j+" div.card div.card-body h5.card-title").html(response[i].nombre);
 	      	$(".hogarp"+j+" div.card div.card-body p.card-text").html(response[i].categoria);
 	      	$(".hogarp"+j+" div.card div.card-body p.fw-bold").html(response[i].moneda+" "+response[i].precio);
+
+	      	hoverimage(".hogarp"+j+" div.card img.card-img-top",response[i].id);
 	      }
 	    }
   	});
@@ -38,6 +50,8 @@ $(document).ready(function () {
 	      	$(".oficinap"+j+" div.card div.card-body h5.card-title").html(response[i].nombre);
 	      	$(".oficinap"+j+" div.card div.card-body p.card-text").html(response[i].categoria);
 	      	$(".oficinap"+j+" div.card div.card-body p.fw-bold").html(response[i].moneda+" "+response[i].precio);
+
+	      	hoverimage(".oficinap"+j+" div.card img.card-img-top",response[i].id);
 	      }
 	    }
   	});
@@ -59,6 +73,8 @@ $(document).ready(function () {
 	      	$(".relajamientop"+j+" div.card div.card-body h5.card-title").html(response[i].nombre);
 	      	$(".relajamientop"+j+" div.card div.card-body p.card-text").html(response[i].categoria);
 	      	$(".relajamientop"+j+" div.card div.card-body p.fw-bold").html(response[i].moneda+" "+response[i].precio);
+
+	      	hoverimage(".relajamientop"+j+" div.card img.card-img-top",response[i].id);
 	      }
 	    }
   	});
@@ -80,6 +96,8 @@ $(document).ready(function () {
 	      	$(".fitnessp"+j+" div.card div.card-body h5.card-title").html(response[i].nombre);
 	      	$(".fitnessp"+j+" div.card div.card-body p.card-text").html(response[i].categoria);
 	      	$(".fitnessp"+j+" div.card div.card-body p.fw-bold").html(response[i].moneda+" "+response[i].precio);
+
+	      	hoverimage(".fitnessp"+j+" div.card img.card-img-top",response[i].id);
 	      }
 	    }
   	});

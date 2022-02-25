@@ -94,20 +94,56 @@
   transform: scale(1.05) rotate(1deg);
   transition: transform 0.5s;
 } 
-/* hover cambiar de imagen */
+/*
 .card:hover #imgrec1{
+  content: url('../images/productos/p2/2.jpg');
+}
+.card:hover #imgrela1{
+  content: url('../images/productos/p2/2.jpg');
+}
+.card:hover #imgofi1{
+  content: url('../images/productos/p2/2.jpg');
+}
+.card:hover #imghogar1{
   content: url('../images/productos/p2/2.jpg');
 }
 .card:hover #imgrec2{
   content: url('../images/productos/p21/2.jpg');
 }
+.card:hover #imgrela2{
+  content: url('../images/productos/p21/2.jpg');
+}
+.card:hover #imgofi2{
+  content: url('../images/productos/p21/2.jpg');
+}
+.card:hover #imghogar2{
+  content: url('../images/productos/p21/2.jpg');
+}
 .card:hover #imgrec3{
+  content: url('../images/productos/p23/2.jpg');
+}
+.card:hover #imgrela3{
+  content: url('../images/productos/p23/2.jpg');
+}
+.card:hover #imgofi3{
+  content: url('../images/productos/p23/2.jpg');
+}
+.card:hover #imghogar3{
   content: url('../images/productos/p23/2.jpg');
 }
 .card:hover #imgrec4{
   content: url('../images/productos/p6/2.jpg');
 }
-
+.card:hover #imgrela4{
+  content: url('../images/productos/p6/2.jpg');
+}
+.card:hover #imgofi4{
+  content: url('../images/productos/p6/2.jpg');
+}
+.card:hover #imghogar4{
+  content: url('../images/productos/p6/2.jpg');
+}
+*/
 
 @media ( min-width:663px){
   .card{
