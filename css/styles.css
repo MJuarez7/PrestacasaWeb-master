@@ -139,4 +139,6 @@ a[disabled] {
   color: #58585899;
 }
 
-
+.material-icons{
+  vertical-align: middle;
+}

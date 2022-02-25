@@ -60,13 +60,13 @@
   <div class="row">
     <div id="filtros" class="col-md-3 col-12">
         <div class="row">
-          <div class="col-md-12 col-6">
-        <div id="categoria" class="container form-control my-1">Categoria</div>
-        <div id="categorias" class="container form-control"></div>
+          <div class="col-md-12 col-6 bg-white rounded-2  mb-md-2 mb-0">
+        <div id="categoria" class="container form-control my-1 border-0 border-bottom">Categoria</div>
+        <div id="categorias" class="container form-control border-0"> </div>
           </div>
-          <div class="col-md-12 col-6">
-        <div id="precio" class="container form-control my-1">Precio</div>
-        <div id="precios" class="container form-control">
+          <div class="col-md-12 col-6 bg-white rounded-2 mb-md-2 mb-0">
+        <div id="precio" class="container form-control my-1 border-0 border-bottom">Precio</div>
+        <div id="precios" class="container form-control border-0">
           <input name="precio1" placeholder="s/ 1" class="container form-control ">
           <span class="d-block text-center ">a</span>
           <input name="precio2" placeholder="s/ 1000" class="container form-control">
@@ -74,20 +74,33 @@
           <button type="button" id="buscar" class="btn btn-primary mt-2">Filtrar</button></div>
         </div>
         </div>
+        <br>
+        <img src="images/oferta.png" class="rounded mx-auto d-md-block d-none w-100" alt="...">
+        <br>
+        <img src="images/recomendado.png" class="rounded mx-auto d-md-block d-none w-100" alt="...">
+        <br>
+        <img src="images/vendido.png" class="rounded mx-auto d-md-block d-none w-100" alt="...">
         </div>
     </div>
     
     <div class="col-md-9 col-12">
-        <div class="container form-control my-1">
+        <div class="container form-control mb-1">
+          <div class="row">
+            <div class="col-3 ">
           <label>Ordenar Por:</label>
+           </div> 
+           <div class="col-9">
           <select id="ordenamiento" name="ordenamiento" class="form-control d-inline-block">
             <option value="3">Recomendados</option>
             <option value="2">Precio de mayor a menor</option>
             <option value="1">Precio de menor a mayor</option>
           </select>
+           </div>
+        </div>
         </div>
         <div id="productos" class="row">
         </div>
+        
     </div>
   </div>
   </form>
