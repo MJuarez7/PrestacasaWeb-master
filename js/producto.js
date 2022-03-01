@@ -40,6 +40,43 @@ function getParameterByName(name) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
+function getInfoProductos(idproducto) {
+	$.ajax({
+	    type: "POST",
+	    url: 'database/producto.php',
+	    dataType: 'json',
+	    data: "idproducto="+idproducto,
+	    beforeSend: function(argument) {
+			$("#modalcargando").modal();
+		},
+	    success: function(response)
+	    {
+	    	if (response.length>0) {
+	    		console.log(response[0]);
+	   			$(".MATERIAL").html(response[0].MATERIAL);
+				$(".ALTO").html(response[0].ALTO);
+				$(".ANCHO").html(response[0].ANCHO);
+				$(".PROFUNDIDAD").html(response[0].PROFUNDIDAD);
+				$(".OPERATIVIDAD").html(response[0].OPERATIVIDAD);
+				$(".CAPACIDAD").html(response[0].CAPACIDAD);
+				$(".PESO").html(response[0].PESO);
+				$(".COLOR").html(response[0].COLOR);
+				$(".FUNCIONALIDAD").html(response[0].FUNCIONALIDAD);
+				$(".GARANTIA").html(response[0].GARANTIA);
+				$(".INCLUYE").html(response[0].INCLUYE);
+				$(".PRECAUCIONES").html(response[0].PRECAUCIONES);
+				$(".DESCRIPCION").html(response[0].DESCRIPCION);
+				$(".CARACTERISTICAS").html(response[0].CARACTERISTICAS);
+	    	}else{
+	    		console.log("No tiene características en la BD");
+	    	}
+	    },
+		complete: function() {
+	        $("#modalcargando").modal('hide');
+	    }
+    });
+}
+
 $(document).ready(function () {
 	mostrarContadorbolsa();
 	getproductos = getProductos();
@@ -103,7 +140,7 @@ $(document).ready(function () {
 		window.location = 'tienda.html';
 	}
 
-
+	getInfoProductos(idproducto);
 
 	var main = new Splide( '#main', {
 		type      : 'fade',
