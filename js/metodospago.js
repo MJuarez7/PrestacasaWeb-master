@@ -61,30 +61,30 @@ function culqi() {
       //En esta linea de codigo debemos enviar el "Culqi.token.id"
       //hacia tu servidor con Ajax
         $.ajax({
-		    type: "POST",
-		    url: 'database/compra.php',
-		    dataType: 'json',
-		    data: {
-		    	id_compra:getParameterByName("idcompra"),
-		    	token:token
-		    },
-		    beforeSend: function(argument) {
-				$("#modalcargando").modal();
-			},
-		    success: function(response)
-		    {
-		    	// console.log(response);
-		    	if (response=="exito") {
-		    		document.cookie = 'carrito-productos' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-		    		window.location = 'tienda.html';
-		    	}else{
-		    		alert("Hubo un problema con la compra");
-		    	}
-		    },
-		    complete: function() {
-		        $("#modalcargando").modal('hide');
-		    }
-		});
+			    type: "POST",
+			    url: 'database/compra.php',
+			    dataType: 'json',
+			    data: {
+			    	id_compra:getParameterByName("idcompra"),
+			    	token:token
+			    },
+			    beforeSend: function(argument) {
+						$("#modalcargando").modal();
+					},
+			    success: function(response)
+			    {
+			    	// console.log(response);
+			    	if (response=="exito") {
+			    		document.cookie = 'carrito-productos' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+			    		window.location = 'tienda.html';
+			    	}else{
+			    		alert("Hubo un problema con la compra");
+			    	}
+			    },
+			    complete: function() {
+			      $("#modalcargando").modal('hide');
+			    }
+				});
   } else { // ¡Hubo algún problema!
       // Mostramos JSON de objeto error en consola
       console.log(Culqi.error);

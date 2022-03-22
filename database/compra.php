@@ -35,7 +35,7 @@ $charge = $culqi->Charges->create(
      "source_id" => $_POST['token']
    )
 );
-
+// print_r($charge);die();
 $conn = conectar();
 $update = "UPDATE compra SET estado='2',fecha_pago=now() WHERE id_compra=$idcompra";
 mysqli_query($conn, $update);
