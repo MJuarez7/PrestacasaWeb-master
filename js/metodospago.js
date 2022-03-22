@@ -9,7 +9,7 @@ $(document).ready(function () {
 	productos = getProductos();
 	// console.log(JSON.stringify(productos));
 	
-	if (productos.length>0) {
+	// if (productos.length>0) {
 		ids = [];
 		cantidades = [];
 		for (var i = productos.length - 1; i >= 0; i--) {
@@ -30,19 +30,23 @@ $(document).ready(function () {
 		    	// console.log(response[0].estado);
 		    	if (!(parseInt(response[0].estado)==2)) {
 			    	Culqi.publicKey = 'sk_test_4610c3692687a261';
-					Culqi.settings({
-						title: 'Pago de Producto(s)',
-						currency: 'PEN',
-						description: '',
-						amount: response[0].preciototal*100
-					});
-				}
+						Culqi.settings({
+							title: 'Pago de Producto(s)',
+							currency: 'PEN',
+							description: '',
+							amount: response[0].preciototal*100
+						});
+					}else{
+						// setCookie("carrito-productos","","1");
+						document.cookie = 'carrito-productos' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		    		window.location = 'tienda.html';
+					}
 		    },
 		    complete: function() {
 		        $("#modalcargando").modal('hide');
 		    }
 		});
-	}
+	// }
 });
 
 
@@ -69,16 +73,13 @@ function culqi() {
 			},
 		    success: function(response)
 		    {
-		    	setCookie("carrito-productos","","1");
-		    	window.location = 'tienda.html';
-		    	// if (response=="exito") {
-		    	// 	// console.log("1");
-		    	// 	setCookie("carrito-productos","","1");
-		    	// 	// console.log("2");
-		    	// 	window.location = 'tienda.html';
-		    	// }else{
-		    	// 	alert("Hubo un problema con la compra");
-		    	// }
+		    	// console.log(response);
+		    	if (response=="exito") {
+		    		document.cookie = 'carrito-productos' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		    		window.location = 'tienda.html';
+		    	}else{
+		    		alert("Hubo un problema con la compra");
+		    	}
 		    },
 		    complete: function() {
 		        $("#modalcargando").modal('hide');

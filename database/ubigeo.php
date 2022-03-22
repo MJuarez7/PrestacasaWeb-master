@@ -3,7 +3,7 @@ include 'conexion.php';
 
 if ($_POST['condicion']=='departamento') {
 	$conn = conectar();
-	$sql = "SELECT idDepa,departamento FROM ubdepartamento";
+	$sql = "SELECT idDepa,departamento FROM ubdepartamento order by departamento";
 	$result = $conn->query($sql);
 
 	$data=[];
@@ -24,7 +24,7 @@ if ($_POST['condicion']=='provincia') {
 		$wheredep = "idDepa = $depa";
 	}
 	$conn = conectar();
-	$sql = "SELECT idProv,provincia,idDepa FROM ubprovincia where $wheredep";
+	$sql = "SELECT idProv,provincia,idDepa FROM ubprovincia where $wheredep order by provincia";
 	$result = $conn->query($sql);
 
 	$data=[];
@@ -45,7 +45,7 @@ if ($_POST['condicion']=='distrito') {
 		$whereprov = "idProv = $prov";
 	}
 	$conn = conectar();
-	$sql = "SELECT idDist,distrito,idProv FROM ubdistrito where $whereprov";
+	$sql = "SELECT idDist,distrito,idProv FROM ubdistrito where $whereprov order by distrito";
 	$result = $conn->query($sql);
 
 	$data=[];

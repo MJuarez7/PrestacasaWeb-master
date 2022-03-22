@@ -40,7 +40,6 @@ $conn = conectar();
 $update = "UPDATE compra SET estado='2',fecha_pago=now() WHERE id_compra=$idcompra";
 mysqli_query($conn, $update);
 $conn->close();
-echo "exito";
-exit();
+echo json_encode("exito");
 
 ?>
